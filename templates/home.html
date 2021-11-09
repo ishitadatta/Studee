@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+    <!-- ***** Welcome Area Start ***** -->
+  <section class="welcome-area">
+    <!-- Welcome Slides -->
+    <div class="welcome-slides owl-carousel">
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img jarallax"  style="background-image: url('{% static landstudee.png %}');">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+
+<div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInUp" data-delay="100ms"></h2>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Welcome Slide -->
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+              <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInUp" data-delay="100ms"></h2>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
