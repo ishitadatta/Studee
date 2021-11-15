@@ -9,15 +9,17 @@ A student portal application for Engage 2021
 <p align="center">
   <a href="#about">About</a> •
   <a href="#features">Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#agile">Agile</a>
+  <a href="#installation">Installation</a> •
+  <a href="#ci/cd">CI/CD</a>
+  <a href="#testing">Testing</a>
+	
 </p>
 <!-- <p align="center">
 	Developed by : <i> Ishita Datta </i>
 </p> -->
 
 ## About
-Studee is a student portal application that helps students and teachers communicate both virtually and physically. 
+Studee is a student portal application that helps students and teachers communicate both virtually and physically and helps students stay ENGAGE-ed with a credit-based system.
 <ul>  <b> Built with</b>
 <ul>
 <li>django</li>
@@ -112,3 +114,27 @@ Studee is a student portal application that helps students and teachers communic
  7. List current members of the club
 
 
+ # Installation
+1) Install python3
+2) Install pip for python3
+3) Install virtualenv
+  `pip install virtualenv` or `pip3 install virtualenv`
+4) Create virtual environment and cd into it
+  `virtualenv django-quiz --python python3 && cd django-quiz`
+5) Clone git repository into src folder and cd into it `git clone <url> src && cd src`
+6) Install requirements `pip install -r requirements.txt` or `pip3 install -r requirements.txt`
+7) Make appropriate changes to settings module and make migrations using `python manage.py makemigrations` and then 
+  `python manage.py migrate`
+8) Run using `python manage.py runserver`
+9) Create superuser to log into admin `python manage.py createsuperuser`
+
+# CI/CD
+1. Software used for agile development - Azure Boards
+2. Version control - Git & GitHub
+3. Requirement specification - Traceability Matrix
+
+# Testing
+1. Unit Testing
+2. Component Testing
+3. Positive Testing
+4. Negative Testing
