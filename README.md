@@ -19,9 +19,14 @@ A student portal application for Engage 2021
 
 ## About
 Studee is a student portal application that helps students and teachers communicate both virtually and physically and helps students stay ENGAGE-ed with a credit-based system.
-<ul>  <b> Built with</b>
+<ul>  <b> Tools and Technologies</b>
 <ul>
 <li>django</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Figma</li>
+<li>Azure Boards</li>
 </ul>
 </ul>
 
