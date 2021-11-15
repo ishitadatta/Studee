@@ -11,7 +11,6 @@ A student portal application for Engage 2021
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#ci/cd">CI/CD</a>
-  <a href="#testing">Testing</a>
 	
 </p>
 <!-- <p align="center">
@@ -64,8 +63,11 @@ Studee is a student portal application that helps students and teachers communic
 ### Submission 
  1. Teacher can create a new assignment(assignment name, submission due date)
  2. Students can view assignments
- 3. Student assignment submission form
- 4. Credits allotted for in-time assignment submission
+ 3. Student assignment submission form - to upload assignment document
+ 4. Teacher can view assignment submissions
+ 5. Teacher can delete assignment uploaded by them
+ 6. Student can delete assignment submitted by them
+ 7. Credits allotted for in-time assignment submission
 
 ### Online Forum
  1. Create a new post
@@ -132,9 +134,7 @@ Studee is a student portal application that helps students and teachers communic
 1. Software used for agile development - Azure Boards
 2. Version control - Git & GitHub
 3. Requirement specification - Traceability Matrix
-
-# Testing
-1. Unit Testing
-2. Component Testing
-3. Positive Testing
-4. Negative Testing
+4. Unit Testing
+5. Component Testing
+6. Positive Testing
+7. Negative Testing
