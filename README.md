@@ -80,15 +80,16 @@ Studee is a student portal application that helps students and teachers communic
 ### Online Forum
  1. Create a new post
  2. Categorise each post under a subject or create a new category for a post
- 3. Add tags to posts
- 4. Comment on a post
- 5. Reply to a comment on a post
- 6. Show user type (teacher/student) for each post, comment, reply
- 7. Display user profile next to post/comment/reply
- 8. Increment engagement score for each user forum activity
- 9. Delete post and its trailing comments and replies by post owner
- 10. Delete comment and its trailing replies by comment owner
- 11. Delete comment reply by its owner
+ 3. Map each category to an engagement score (0 Enagement Topic, Low Engagement Topic, Popular, High Engagement, Closed Topic)
+ 4. Add tags to posts
+ 5. Comment on a post
+ 6. Reply to a comment on a post
+ 7. Show user type (teacher/student) for each post, comment, reply
+ 8. Display user profile next to post/comment/reply
+ 9. Increment engagement score for each user forum activity
+ 10. Delete post and its trailing comments and replies by post owner
+ 11. Delete comment and its trailing replies by comment owner
+ 12. Delete comment reply by its owner
 
 ## Additional Features
 
@@ -120,9 +121,9 @@ Studee is a student portal application that helps students and teachers communic
  1. Upload profile picture
 
 ### Clubs
- 1. Create a club
- 2. Make creater of the club, the founder of a club (club name, club description, approval required)
- 3. Create an event (event name, date, duration, description)
+ 1. Create a club (club name, club description, approval required)
+ 2. Make creater of the club, the founder of a club 
+ 3. Create an event (event name, date, location, duration, description)
  4. Send faculty approval request after creating event request 
  5. Show calendar with event date
  6. Allow members to join a club
