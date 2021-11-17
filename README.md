@@ -75,8 +75,11 @@ Studee is a student portal application that helps students and teachers communic
  7. Teacher can delete assignment uploaded by them
  8. Student can delete assignment submitted by them
  9. Student can re-submit assignment
- 10. Display pending assignment submission deadlines on calendar
- 11. Credits allotted for in-time assignment submission
+ 10. Student can view submitted assignment
+ 11. Display pending assignment submission deadlines on calendar
+ 12. Display number of pending days till deadline (emphasis on deadline less than or equal to 2 days)
+ 13. Auto-update assignment expiry status post submission deadline
+ 14. Credits allotted for in-time assignment submission
 
 ### Online Forum
  1. Create a new post
