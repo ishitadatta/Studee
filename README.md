@@ -66,13 +66,16 @@ Studee is a student portal application that helps students and teachers communic
  4. Teacher will receive list of all student preferences
 
 ### Submission 
- 1. Teacher can create a new assignment(assignment name, submission due date)
+ 1. Teacher can create a new assignment(assignment title, assignment detail, assignment course, marks, submission due date)
  2. Students can view assignments
  3. Student assignment submission form - to upload assignment document
  4. Teacher can view assignment submissions
- 5. Teacher can delete assignment uploaded by them
- 6. Student can delete assignment submitted by them
- 7. Credits allotted for in-time assignment submission
+ 5. Teacher can download each assignment
+ 6. Teacher can delete assignment uploaded by them
+ 7. Student can delete assignment submitted by them
+ 8. Student can re-submit assignment
+ 9. Display pending assignment submission deadlines on calendar
+ 10. Credits allotted for in-time assignment submission
 
 ### Online Forum
  1. Create a new post
@@ -83,6 +86,9 @@ Studee is a student portal application that helps students and teachers communic
  6. Show user type (teacher/student) for each post, comment, reply
  7. Display user profile next to post/comment/reply
  8. Increment engagement score for each user forum activity
+ 9. Delete post and its trailing comments and replies by post owner
+ 10. Delete comment and its trailing replies by comment owner
+ 11. Delete comment reply by its owner
 
 ## Additional Features
 
@@ -107,13 +113,15 @@ Studee is a student portal application that helps students and teachers communic
 ### Courses
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
+ 3. Enroll into course option for students
+ 4. Delete a course by course owner
 
 ### User Profile
  1. Upload profile picture
 
 ### Clubs
  1. Create a club
- 2. Make creater of the club, the founder of a club
+ 2. Make creater of the club, the founder of a club (club name, club description, approval required)
  3. Create an event (event name, date, duration, description)
  4. Send faculty approval request after creating event request 
  5. Show calendar with event date
