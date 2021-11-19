@@ -21,12 +21,14 @@ Studee is a student portal application that helps students and teachers communic
 
 <ul>  <b> Tools and Technologies</b>
 <ul>
-<li>django</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>Figma</li>
-<li>Azure Boards</li>
+	<li>django</li>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+	<li>Python</li>
+	<li>Figma</li>
+	<li>Chart.js</li>
+	<li>Azure Boards</li>
 </ul>
 </ul>
 
