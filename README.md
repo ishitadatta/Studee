@@ -82,7 +82,7 @@ Studee is a student portal application that helps students and teachers communic
  11. Display pending assignment submission deadlines on calendar
  12. Display number of pending days till deadline (emphasis on deadline less than or equal to 2 days)
  13. Auto-update assignment expiry status post submission deadline
- 14. Credits allotted for in-time assignment submission
+ 14. Teacher can grade assignments
 
 ### Online Forum
  1. Create a new post
@@ -95,8 +95,8 @@ Studee is a student portal application that helps students and teachers communic
  8. Display user profile next to post/comment/reply
  9. Increment engagement score for each user forum activity
  10. Increment hit count of a post every time a new user views the post
- 11. Delete post and its trailing comments and replies by post owner
- 12. Delete comment and its trailing replies by comment owner
+ 11. Delete post (and its trailing comments and replies) by post owner
+ 12. Delete comment (and its trailing replies) by comment owner
  13. Delete comment reply by its owner
 
 ## Additional Features
@@ -113,12 +113,13 @@ Studee is a student portal application that helps students and teachers communic
  9. Session storage
 
 ### Credit System
- 1. Credits earned from engaging posts from Forum
- 2. Credits earned from assignment submission
- 3. Credits earned from enrolled course
- 4. Credits earned from attending event
- 5. Credit distribution split-up representation
- 6. Display of credit redeem options
+ 1. Credits earned for posts on forum
+ 2. Credits earned from commenting on posts on forum
+ 3. Credits earned from replying to comments on forum
+ 4. Credits earned from assignment submission
+ 5. Credits earned from uploading vaccination certificate
+ 6. Credit distribution split-up representation using Chart.js
+ 7. Credit redeem options
 
 ### Courses
  1. Create course option for teachers (course name, course image, course description, credits)
@@ -132,6 +133,7 @@ Studee is a student portal application that helps students and teachers communic
  2. Change password
  3. Edit Profile
  4. Delete Profile
+ 5. Minimise dashboard side drawer
 
 ### Clubs
  1. Create a club (club name, club description, approval required) 
