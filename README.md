@@ -135,11 +135,11 @@ Studee is a student portal application that helps students and teachers communic
  3. Make creater of the club, the founder of a club 
  4. Create an event (event name, date, location, duration, description)
  5. Attend an event (credits awarded)
- 6. Send faculty approval request for creating event request 
- 7. Faculty approval notification
- 8. Show calendar with event date
- 9. Allow members to join a club
- 10. List current members of the club
+ 6. Show calendar with event date
+ 7. Allow members to join a club
+ 8. List current members of the club
+ 9. Send faculty approval request for joining club  
+ 10. Faculty approval notification
 
 
  # Installation
