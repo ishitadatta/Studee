@@ -1,10 +1,6 @@
-# Studee
-A student portal application for Engage 2021
-
 <h1 align="center">
+<img src="static/Favicon.png" width="128"/>
 <br>
-  ![](Favicon.png)
-  <br>
  STUDEE
   <br>
 </h1>
@@ -134,13 +130,16 @@ Studee is a student portal application that helps students and teachers communic
  4. Delete Profile
 
 ### Clubs
- 1. Create a club (club name, club description, approval required)
- 2. Make creater of the club, the founder of a club 
- 3. Create an event (event name, date, location, duration, description)
- 4. Send faculty approval request after creating event request 
- 5. Show calendar with event date
- 6. Allow members to join a club
- 7. List current members of the club
+ 1. Create a club (club name, club description, approval required) 
+ 2. Founders must have high credits (30 credits required to create a club)
+ 3. Make creater of the club, the founder of a club 
+ 4. Create an event (event name, date, location, duration, description)
+ 5. Attend an event (credits awarded)
+ 6. Send faculty approval request for creating event request 
+ 7. Faculty approval notification
+ 8. Show calendar with event date
+ 9. Allow members to join a club
+ 10. List current members of the club
 
 
  # Installation
