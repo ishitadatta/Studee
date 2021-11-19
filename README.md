@@ -38,7 +38,7 @@ Studee is a student portal application that helps students and teachers communic
     <li>
       <a href="#basic-features">Basic Features</a>
       <ul>
-        <li><a href="#scheduler">Scheduler</a></li>
+        <li><a href="#tracker">Vaccination Tracker</a></li>
         <li><a href="#submission">Submission tool</a></li>
         <li><a href="#online-forum">Online Forum</a></li>
       </ul>
@@ -59,11 +59,12 @@ Studee is a student portal application that helps students and teachers communic
 
 ## Basic Features
 
-### Scheduler
+### Vaccination Tracker
  1. Upload vaccination certificate
  2. Credits allotted to students who have uploaded vaccination certificate
  3. Student can select option for offline/online class (form)
- 4. Teacher will receive list of all student preferences
+ 4. Display notice for partially vaccinated students on dashboard
+ 5. Teacher will receive list of all student preferences
 
 ### Submission 
  1. Teacher can create a new assignment(assignment title, assignment detail, assignment course, marks, submission due date)
