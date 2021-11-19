@@ -17,7 +17,8 @@
 </p> -->
 
 ## About
-Studee is a student portal application that helps students and teachers communicate both virtually and physically and helps students stay ENGAGE-ed with a credit-based system.
+Studee is a student portal application that helps students and teachers communicate both virtually and physically be keeping students stay ENGAGE-ed with the help of a <i> Credit-based system </i>.
+
 <ul>  <b> Tools and Technologies</b>
 <ul>
 <li>django</li>
