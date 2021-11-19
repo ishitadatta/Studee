@@ -103,7 +103,7 @@ Studee is a student portal application that helps students and teachers communic
  2. Create two sets of users - Student and Teacher
  3. Unique username and email authentication
  4. Password length check
- 5. Password strength check (too short/too common)
+ 5. Password strength check (too short/too common/all numbers)
  6. Sign In by entering user details (email and password)
  7. Superuser for admin privileges
  8. Logout 
@@ -112,15 +112,16 @@ Studee is a student portal application that helps students and teachers communic
 ### Credit System
  1. Credits earned from engaging posts from Forum
  2. Credits earned from assignment submission
- 3. Credits earned from uploading vaccination certificate
- 4. Credit distribution split-up representation
- 5. Credit redeem options
+ 3. Credits earned from enrolled course
+ 4. Credits earned from attending event
+ 5. Credit distribution split-up representation
+ 6. Display of credit redeem options
 
 ### Courses
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
  3. Enroll into course option for students
- 4. Withdraw from a course
+ 4. Withdraw from a course option for students
  5. Delete a course by course owner
 
 ### User Profile
