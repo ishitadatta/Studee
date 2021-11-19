@@ -3,7 +3,7 @@ A student portal application for Engage 2021
 
 <h1 align="center">
 <br>
-  ![Studee](static\favicon.png)
+  ![Studee](static/Favicon.png)
   <br>
  STUDEE
   <br>
