@@ -125,7 +125,9 @@ Studee is a student portal application that helps students and teachers communic
 
 ### User Profile
  1. Upload profile picture
- 2. Edit Profile
+ 2. Change password
+ 3. Edit Profile
+ 4. Delete Profile
 
 ### Clubs
  1. Create a club (club name, club description, approval required)
