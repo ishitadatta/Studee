@@ -91,9 +91,10 @@ Studee is a student portal application that helps students and teachers communic
  7. Show user type (teacher/student) for each post, comment, reply
  8. Display user profile next to post/comment/reply
  9. Increment engagement score for each user forum activity
- 10. Delete post and its trailing comments and replies by post owner
- 11. Delete comment and its trailing replies by comment owner
- 12. Delete comment reply by its owner
+ 10. Increment hit count of a post every time a new user views the post
+ 11. Delete post and its trailing comments and replies by post owner
+ 12. Delete comment and its trailing replies by comment owner
+ 13. Delete comment reply by its owner
 
 ## Additional Features
 
@@ -119,10 +120,12 @@ Studee is a student portal application that helps students and teachers communic
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
  3. Enroll into course option for students
- 4. Delete a course by course owner
+ 4. Withdraw from a course
+ 5. Delete a course by course owner
 
 ### User Profile
  1. Upload profile picture
+ 2. Edit Profile
 
 ### Clubs
  1. Create a club (club name, club description, approval required)
