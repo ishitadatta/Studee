@@ -17,7 +17,7 @@
 </p> -->
 
 ## About
-Studee is a student portal application that helps students and teachers communicate both virtually and physically be keeping students stay ENGAGE-ed with the help of a <i> Credit-based system </i>.
+Studee is a student portal application that helps students and teachers communicate both virtually and physically by keeping students ENGAGE-ed to use the platform with the help of a <i> Credit-based system </i>.
 
 <ul>  <b> Tools and Technologies</b>
 <ul>
@@ -66,7 +66,7 @@ Studee is a student portal application that helps students and teachers communic
 ### Vaccination Tracker
  1. Student can select option for offline/online class 
  2. Student can select vaccination status (not vaccinated/ partially vaccinated/ fully vaccinated)
- 3. 
+ 3. If vaccinated, student must upload latest vaccination certificate
  4. Display notice for students on dashboard to update vaccination status not done
  5. Teacher will receive list of all student preferences
 
