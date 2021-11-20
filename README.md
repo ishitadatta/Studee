@@ -126,7 +126,8 @@ Studee is a student portal application that helps students and teachers communic
  2. Course view option for students (course name, teacher name, course description, credits, duration)
  3. Enroll into course option for students
  4. Withdraw from a course option for students
- 5. Delete a course by course owner
+ 5. Delete a course is user is a teacher
+ 6. Edit a course if user is a teacher
 
 ### User Profile
  1. Upload profile picture
@@ -144,8 +145,8 @@ Studee is a student portal application that helps students and teachers communic
  6. Show calendar with event date
  7. Allow members to join a club
  8. List current members of the club
- 9. Send faculty approval request for joining club  
- 10. Faculty approval notification
+ 9. Send teacher approval request for joining club  
+ 10. Teacher approval notification
 
 
  # Installation
