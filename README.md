@@ -40,14 +40,13 @@ Studee is a student portal application that helps students and teachers communic
     <li>
       <a href="#basic-features">Basic Features</a>
       <ul>
-        <li><a href="#tracker">Vaccination Tracker</a></li>
+        <li><a href="#vaccination-tracker">Vaccination Tracker</a></li>
         <li><a href="#submission">Submission tool</a></li>
         <li><a href="#online-forum">Online Forum</a></li>
       </ul>
     </li>
     <li>
       <a href="#additional-features">Additional Features</a>
-   </li>
       <ul>
         <li><a href="#authentication">Authentication</a></li>
         <li><a href="#credit-system">Credit System</a></li>
@@ -56,6 +55,9 @@ Studee is a student portal application that helps students and teachers communic
 	<li><a href="#clubs">Clubs</a></li>
       </ul>
     </li>
+    <li>
+      <a href="#other-features">Other Features</a>
+   </li>
   </ol>
 </details>
 
@@ -147,6 +149,9 @@ Studee is a student portal application that helps students and teachers communic
  8. List current members of the club
  9. Send teacher approval request for joining club  
  10. Teacher approval notification
+
+## Other Features
+1. Responsive to device resolution 
 
 
  # Installation
