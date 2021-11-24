@@ -23,6 +23,24 @@ Studee is a student portal application that helps students and teachers communic
 <li>JavaScript</li>
 <li>Figma</li>
 <li>Azure Boards</li>
+
+<p align="center">
+	Developed by : <i> Ishita Datta </i>
+</p>
+
+## About
+Studee is a student portal application that helps students and teachers communicate both virtually and physically by keeping students ENGAGE-ed to use the platform with the help of a <i> Credit-based system </i>.
+
+<ul>  <b> Tools and Technologies</b>
+<ul>
+	<li>django</li>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+	<li>Python</li>
+	<li>Figma</li>
+	<li>Chart.js</li>
+	<li>Azure Boards</li>
 </ul>
 </ul>
 
@@ -35,13 +53,13 @@ Studee is a student portal application that helps students and teachers communic
       <a href="#basic-features">Basic Features</a>
       <ul>
         <li><a href="#tracker">Vaccination Tracker</a></li>
+        <li><a href="#vaccination-tracker">Vaccination Tracker</a></li>
         <li><a href="#submission">Submission tool</a></li>
         <li><a href="#online-forum">Online Forum</a></li>
       </ul>
     </li>
     <li>
       <a href="#additional-features">Additional Features</a>
-   </li>
       <ul>
         <li><a href="#authentication">Authentication</a></li>
         <li><a href="#credit-system">Credit System</a></li>
@@ -50,6 +68,9 @@ Studee is a student portal application that helps students and teachers communic
 	<li><a href="#clubs">Clubs</a></li>
       </ul>
     </li>
+    <li>
+      <a href="#other-features">Other Features</a>
+   </li>
   </ol>
 </details>
 
@@ -60,6 +81,10 @@ Studee is a student portal application that helps students and teachers communic
  2. Credits allotted to students who have uploaded vaccination certificate
  3. Student can select option for offline/online class (form)
  4. Display notice for partially vaccinated students on dashboard
+ 1. Student can select option for offline/online class 
+ 2. Student can select vaccination status (not vaccinated/ partially vaccinated/ fully vaccinated)
+ 3. If vaccinated, student must upload latest vaccination certificate
+ 4. Display notice for students on dashboard to update vaccination status not done
  5. Teacher will receive list of all student preferences
 
 ### Submission 
@@ -100,7 +125,7 @@ Studee is a student portal application that helps students and teachers communic
  2. Create two sets of users - Student and Teacher
  3. Unique username and email authentication
  4. Password length check
- 5. Password strength check (too short/too common)
+ 5. Password strength check (too short/too common/all numbers)
  6. Sign In by entering user details (email and password)
  7. Superuser for admin privileges
  8. Logout 
@@ -121,6 +146,9 @@ Studee is a student portal application that helps students and teachers communic
  3. Enroll into course option for students
  4. Withdraw from a course
  5. Delete a course by course owner
+ 4. Withdraw from a course option for students
+ 5. Delete a course is user is a teacher
+ 6. Edit a course if user is a teacher
 
 ### User Profile
  1. Upload profile picture
@@ -140,6 +168,11 @@ Studee is a student portal application that helps students and teachers communic
  8. List current members of the club
  9. Send faculty approval request for joining club  
  10. Faculty approval notification
+ 9. Send teacher approval request for joining club  
+ 10. Teacher approval notification
+
+## Other Features
+1. Responsive to device resolution 
 
 
  # Installation
