@@ -1,49 +1,250 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
-{% block title %}Home{% endblock %}
-
-
+{% block title %}
+    Home
+{% endblock %}
 {% block content %}
-
-    <!-- ***** Welcome Area Start ***** -->
-  <section class="welcome-area">
-    <!-- Welcome Slides -->
-    <div class="welcome-slides owl-carousel">
-      <!-- Single Welcome Slide -->
-      <div class="welcome-welcome-slide bg-img jarallax"  style="background-image: url('{% static landstudee.png %}');">
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-
-<div class="col-12">
-              <!-- Welcome Text -->
-              <div class="welcome-text text-center">
-                <h2 data-animation="fadeInUp" data-delay="100ms"></h2>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Single Welcome Slide -->
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-              <div class="col-12">
-              <!-- Welcome Text -->
-              <div class="welcome-text text-center">
-                <h2 data-animation="fadeInUp" data-delay="100ms"></h2>
-
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <style>
+        th, td {
+            text-align: center!important;
+        }
+    </style>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            Welcome <b>{{ request.user|title }}</b>
+        </h1>
     </div>
-  </section>
 
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Your Points</div>
+                            <div class="h5 mb-0 font-weight-bold text-warning-800">{{ request.user.points }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-award fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Number of Posts
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                {{ request.user.num_posts }}
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Assignments
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ request.user.submission_rate }}%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: {{ request.user.submission_rate }}%" aria-valuenow="{{ request.user.submission_rate }}" aria-valuemin="0"
+                                            aria-valuemax="100">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                Vaccination Status
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                {{ request.user.vaccination.vaccination_status }}
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-syringe fa-2x text-danger"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row my-3">
+
+        <!-- <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4"> -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        Credit Tiers
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                               <th class="px-3">Tier</th>
+                               <th class="px-3">Next Tier</th>
+                               <th class="px-3 col-6">Perks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tier in tiers %}
+                                <tr class="border-top">
+                                    <td class="px-3">
+                                        {{ tier.value }}
+                                    </td>
+                                    <td class="px-3">
+                                        {{ tier.points_to_next }} Points
+                                    </td>
+                                    <td class="px-3 py-2 col-6">
+                                        <img class="card-img-top mx-auto d-block" src="{% static tier.image %}" alt="an image" style="max-height: 4rem; object-fit: contain">
+                                        {{ tier.perk }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Calendar -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card">
+                <div class="card-header py-3">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        Events
+                    </h5>
+                </div>
+                <div>
+                    {% include 'clubs/events_calendar.html' %}
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        Credit Breakdown
+                    </h5>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="creditChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <div class="my-1">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-danger"></i> Assignment Credits
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> Forum Engagements
+                            </span>
+                        </div>
+                        <div class="my-1">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> Club Activities
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-warning"></i> Course Credits
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        Top Credit Student
+                    </h5>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    {% for star in credit_stars %}
+                        <div class="card border-left-primary mb-3">
+                            <div class="card-body py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div class="row">
+                                    <div>
+                                        <img src="{{ star.profile_pic.url }}" alt="" class="rounded-circle mr-2" style="height: 50px; width: 50px">
+                                    </div>
+                                    <div style="display: block">
+                                        <h5 class="mb-1" style="display: inline-block!important"><b>{{ star|title }}</b></h5>
+                                        <br>
+                                        <span style="display: inline-block!important">Points: {{ star.points }}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var credit_data = {{ credit_data|safe }}
+    </script>
 {% endblock %}

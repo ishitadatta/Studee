@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Clubs
+{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-xl-8 col-lg-7">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">
+                    Clubs
+                </h1>
+                {% if request.user.username.points >= 30 and request.user.vaccination.vaccination_status == 'Fully Vaccinated' %}
+                    <a href="{% url 'clubs:create_club' %}" class="btn btn-primary">
+                        Create Club
+                    </a>
+                {% elif request.user.type == 'Teacher' %}
+                    <a href="{% url 'clubs:create_club' %}" class="btn btn-primary">
+                        Create Club
+                    </a>
+                {% else %}
+                    <button class="btn btn-outline-primary" disabled type="button">
+                        Level up to Tier 2 and get fully vaccinated to Create a Club
+                    </button>
+                {% endif %}
+
+            </div>
+            <!-- Card Header - Dropdown -->
+            {% for club in clubs %}
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            <a href="{% url 'clubs:club' club.slug|slugify %}">
+                                {{club.name}}
+                            </a>
+                        </h6>
+
+                        <span>Club Head: <b><a href="">{{club.head|title}}</a></b></span>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <p>{{club.description}} </p>
+                    </div>
+                    <div class="card-footer py-3 d-flex flex-row align-items-center justify-content-between">
+                        {% if club.slug in user.get_clubs.clubs %}
+                            {% if club.slug in user.get_clubs.approvals %}
+                                <button class="btn btn-outline-warning" disabled type="button">
+                                    Pending Approval
+                                </button>
+                            {% else %}
+                                <button class="btn btn-outline-primary" disabled type="button">
+                                    Joined
+                                </button>
+                            {% endif %}
+                        {% else %}
+                            <form action="" method="post">
+                            {% csrf_token %}
+                                <button class="btn btn-primary" type="submit" name="join-club" value="{{ club.slug|slugify }}">
+                                    Join Club
+                                </button>
+                            </form>
+
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-xl-4 col-lg-5">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">
+                    Events
+                </h1>
+            </div>
+            {% include 'clubs/events_calendar.html' %}
+        </div>
+    </div>
+
+
+{% endblock %}

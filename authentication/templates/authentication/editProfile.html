@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Edit Profile
+{% endblock %}
+{% block content %}
+    <link href="{% static 'css/app.css'%}" rel="stylesheet" type="text/css" />
+    <div class="row col-md-10 mx-auto ">
+        <div class="container-fluid my-5">
+            <form method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                {% include 'authentication/profileCard.html' %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

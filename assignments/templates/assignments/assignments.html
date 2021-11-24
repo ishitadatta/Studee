@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load days_until %}
+{% block title %}Assignments{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">
+        Assignments
+    </h1>
+    {% if request.user.type == 'Teacher' %}
+        <a href="{% url 'assignments:create' %}" class="btn btn-primary">
+            Create an Assignment
+        </a>
+    {% endif %}
+</div>
+<div class="row">
+    <div class="col-xl-8 col-lg-7">
+        <!-- Card Header - Dropdown -->
+        {% for assignment in assignments %}
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between assignment-{{ assignment.id }}">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        {{assignment.title}}
+                    </h5>
+                    {% if request.user.type == 'Teacher' %}
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-lg text-primary"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{% url 'assignments:create' assignment.id|slugify %}">
+                                    Edit Assignment
+                                </a>
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <button class="dropdown-item" type="submit" name="delete-assignment" value="{{ assignment.id }}">
+                                        Delete Assignment
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <!-- Card Body -->
+                <div class="card-body assignment-{{ assignment.id }}">
+                    <p>{{assignment.content}} </p>
+                    <p>{{assignment.marks}} Mark{{assignment.marks|pluralize}} </p>
+                </div>
+                <div class="card-footer d-flex flex-row align-items-center justify-content-between assignment-{{ assignment.id }}">
+                    <div>
+                        <span>
+                            {{assignment.deadline|date}}
+                        </span>
+                        <br>
+                        {% if assignment.deadline|days_until > 3 %}
+                            <span>{{ assignment.deadline|days_until }} day{{ assignment.deadline|days_until|pluralize }} to go</span>
+                        {% elif assignment.deadline|days_until > 0 %}
+                            <span class="text-danger">{{ assignment.deadline|days_until }} day{{ assignment.deadline|days_until|pluralize }} to go</span>
+                        {% endif %}
+                    </div>
+                    {% if request.user.type == 'Student' %}
+                        {% if assignment.deadline|days_until > 0 %}
+                            {% if assignment.id in submissions %}
+                                <a href="{% url 'assignments:submit-view' assignment.id|slugify %}" class="btn btn-outline-primary">
+                                    View Submitted Assignment
+                                </a>
+                            {% else %}
+                                <a href="{% url 'assignments:submit' assignment.id|slugify %}" class="btn btn-outline-primary">
+                                    Submit Assignment
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <button class="btn btn-outline-danger" disabled>
+                                Deadline Passed
+                            </button>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'assignments:submissions' assignment.id|slugify %}" class="btn btn-outline-primary">
+                            View Submissions
+                        </a>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow py-4 d-sm-flex align-items-center justify-content-between mb-4">
+            <h5 class="mx-5 py-3">
+                Remember, each assignment submission can earn you credits
+            </h5>
+            <img class="card-img-top mx-auto d-block p-2" src="{% static 'undraw_notebook_re_id0r.svg' %}" alt="an image">
+        </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">
+                Deadlines
+            </h1>
+        </div>
+        {% include 'clubs/events_calendar.html' %}
+    </div>
+</div>
+{% endblock %}

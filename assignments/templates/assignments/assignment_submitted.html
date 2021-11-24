@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Assignments{% endblock %}
+
+
+{% block content %}
+<a class="h6 mb-5 text-gray-800" href="{% url 'assignments:home' %}">
+    Assignments
+</a>
+<i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+<br><br>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            Submitted Assignment
+        </h1>
+    </div>
+    <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                {{ submission.assignment.title }}
+                <form action="" method="post">
+                {% csrf_token %}
+                    <button class="btn btn-outline-danger" type="submit" name="delete-submission" value="{{ submission.assignment.id }}">
+                        Delete Assignment
+                    </button>
+                </form>
+            </div>
+            <div class="card-body">
+                <p>
+                    {{ submission.assignment.content }}
+                </p>
+                <p>
+                    {{ submission.assignment.marks }} Mark{{ submission.assignment.marks|pluralize }}
+                </p>
+
+            </div>
+            <div class="card-footer py-3 d-flex flex-row align-items-center justify-content-between">
+                {{ submission.assignment.deadline }}
+                <a href="{% url 'assignments:submit' submission.assignment.id|slugify %}" class="btn btn-outline-primary">
+                    Re-Submit Assignment
+                </a>
+            </div>
+        </div>
+    </div>
+{#    <div class="container">#}
+{#        {% if messages %}#}
+{#            {% for message in messages %}#}
+{#                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">#}
+{#                    {{ message|safe }}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{##}
+{#        <div class="col-12 col-sm-6 col-md-10">#}
+{#            {% if request.user.is_authenticated %}#}
+{#                <h3><strong> {{ assignment.assignment.title }}  </strong></h3>#}
+{#                <hr/>#}
+{#                <p><h4>Content</h4> {{ assignment.assignment.content }} </p>#}
+{#                <br/>#}
+{#                <p> <h4>Marks</h4> {{ assignment.assignment.marks }} </p>#}
+{##}
+{#                <p> <h4>Time</h4> {{ assignment.assignment.duration }} hours </p>#}
+{#                <h4><a href="{{ assignment.file.url }}" download="">{{ assignment.file.name|slice:'12:' }}</a></h4>#}
+{#                <h4><a href="{% url 'assignments:submit' assignment.assignment.id|slugify %}">Submit Assignment</a></h4>#}
+{#            {% else %}#}
+{#                <div style="background-color:#fff;color:#000;font-weight:bolder;padding:20px;width:100%;"> Please <a href="{% url 'authentication:login' %}"><b>login</b></a> to view assignments</div>#}
+{#            {% endif %}#}
+{#            <br/>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+
+{% endblock %}

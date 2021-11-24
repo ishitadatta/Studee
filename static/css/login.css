@@ -44,7 +44,7 @@ section .row {
 
 }
 i{
-    color: rgba(0,0,0,0.5);
+    color: #00474d;
     transition: 1s;
     padding: 0 5px;
     user-select: none;
@@ -84,32 +84,3 @@ section .row div:nth-child(2){
     transform: translateX(-100%);
     }
 }
-/* section .row:nth-child(even) div{
-    animation: animate3 80s linear infinite;
-    animation-delay: 80s;
-}
-
-section .row:nth-child(even) div:nth-child(2){
-    animation: animate4 80s linear infinite;
-    animation-delay: 40s;
-}
-@keyframes animate3 {
-    0%
-    {
-    transform: translateX(-100%);
-    }
-    100%
-    {
-    transform: translateX(100%);
-    }
-}
-@keyframes animate4 {
-    0%
-    {
-    transform: translateX(-200%);
-    }
-    100%
-    {
-    transform: translateX(0%);
-    }
-}  */

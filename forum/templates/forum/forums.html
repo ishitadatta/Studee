@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            Forums
+        </h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Total Categories
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-warning-800">{{ num_categories }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-award fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Total Posts</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ num_posts }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Your Engagement Score
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                            style="width: 50%" aria-valuenow="{50" aria-valuemin="0"
+                                            aria-valuemax="100">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a class="btn btn-primary shadow w-100 h-100" href="{% url 'forum:create_post' %}" style="align-items:center; text-align: center">
+                <div class="font-weight-bold text-uppercase p-2 my-auto" style="font-size: 20px; vertical-align: middle">
+                    Create new post
+                </div>
+            </a>
+        </div>
+{#        <a class="btn btn-primary shadow col-xl-3 col-md-6 mb-4" href="{% url 'forum:create_post' %}">#}
+{#            <div class="text-sm font-weight-bold text-uppercase mb-1 py-2">#}
+{#                Create new post#}
+{#            </div>#}
+{#        </a>#}
+
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-xl-8 col-lg-7">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">
+                    Categories
+                </h1>
+            </div>
+            <!-- Card Header - Dropdown -->
+            {% for category in categories %}
+                <div class="card shadow mb-4" href="{% url 'forum:posts' category.slug|slugify %}">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            <span>
+                                {{category.title}}
+                            </span>
+                        </h6>
+                        <a href="{% url 'forum:posts' category.slug|slugify %}" class="btn btn-outline-primary">
+                            View Category
+                        </a>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <p>{{category.description}} </p>
+                    </div>
+                    <div class="card-footer py-3 d-flex flex-row align-items-center justify-content-between">
+                        {% if last_post %}
+                            <span>
+                                <b><a href="{% url 'forum:detail' last_post.slug|slugify %}">Last post</a></b> by <a href="">{{last_post.user|title}}</a>
+                                <br>on <small>{{last_post.date|date}}</small>
+                            </span>
+                        {% else %}
+                            <span>No posts in this category.</span>
+                        {% endif %}
+                        <span>{{category.num_posts}} Post{{category.num_posts|pluralize}}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow py-4 d-sm-flex align-items-center justify-content-between mb-4">
+                <h6 class="col-6 mx-4 my-2 py-3" style="position: absolute; right: 0">
+                    Higher engagement on the forum can earn you <b>extra</b> credits
+                </h6>
+                <img class="card-img-top mx-auto d-block col-11 my-5" src="{% static 'undraw_social_interaction_re_dyjh1.png' %}" alt="an image">
+                <div class="col-6 mx-4 my-2 py-3 flex-wrap" style="position: absolute; left: 5%; bottom: 0">
+                    <h6><b>Posts</b><br><i class="fas fa-award text-warning"></i>  0.25 credits </h6> 
+                    <h6><b>Comments</b><br><i class="fas fa-award text-warning"></i>  0.1 credits </h6>
+                    <h6><b>Replies</b><br><i class="fas fa-award text-warning"></i>  0.1 credits </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+ {% endblock content %}

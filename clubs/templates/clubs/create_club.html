@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+<a class="h6 mb-5 text-gray-800" href="{% url 'clubs:home' %}">
+    Clubs
+</a>
+<i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+<br><br>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">
+        Create Club
+    </h1>
+</div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">
+                Club Name
+            </label>
+            <p>
+                {{ create_form.name }}
+            </p>
+            {% for error in create_form.name.errors %}
+                <p style="color:red;">
+                    {{error}}
+                </p>
+            {% endfor %}
+        </div>
+        <!--end form-group-->
+        <div class="form-group">
+            <label for="description">
+                Club Description
+            </label>
+            <p>
+                {{ create_form.description }}
+            </p>
+            {% for error in create_form.description.errors %}
+                <p style="color:red;">
+                    {{error}}
+                </p>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="approval_required">
+                Approval Required to Join Club
+            </label>
+            <p>
+                {{ create_form.approval_required }}
+            </p>
+            {% for error in create_form.approval_required.errors %}
+                <p style="color:red;">
+                    {{error}}
+                </p>
+            {% endfor %}
+        </div>
+        <div class="form-group mb-0 row">
+            <div class="col-12 mt-2">
+                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">
+                    Create Club
+                </button>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}

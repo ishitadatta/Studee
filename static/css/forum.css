@@ -13,7 +13,7 @@ html{
 }
 
 a{
-    color:#0B9399;
+    color:#fff;
     font-weight: bolder;
     text-decoration: none;
 }
@@ -52,7 +52,7 @@ h1{
     padding: 10px;
     margin:4px;
     border-radius: 5px;
-    background-color:#111314;
+    background-color:#0B9399;
 }
 
 .subforum-description *{
@@ -91,7 +91,7 @@ h1{
         display: block;
         border: 0;
         height: 1px;
-        background-image: linear-gradient(to right, rgba(190, 190, 190, 0), rgba(255, 255, 255, 0.75), rgba(190, 190, 190, 0));
+        background-image: linear-gradient(to right, rgb(56, 161, 221), rgba(255, 255, 255, 0.75), rgb(56, 161, 221));
     }
 
     
@@ -166,6 +166,7 @@ header{
 
 .nav-item a:hover{
     background-color: #65BABE;
+    color: #fff;
 }
 
 .hide{
@@ -348,11 +349,11 @@ footer{
 }
 
 .navigate a{
-    color: #fff;
+    color: #3a3a3a;
 }
 
 .navigate a:hover{
-    color:#0B9399;
+    color:#fff;
     font-weight: bolder;
 }
 
@@ -375,7 +376,7 @@ footer{
 }
 
 .note{
-    background-color:#FFFFFF;
+    background-color:#3a3a3a;
     padding: 20px;
     display: block;
 }

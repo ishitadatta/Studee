@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load hitcount_tags %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <a class="h6 mb-5 text-gray-800" href="{% url 'forum:home' %}">
+        Forum
+    </a>
+    <i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+    <div class="row mt-3">
+        <!-- Area Chart -->
+        <div class="col-xl-8 col-lg-7">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">
+                    Posts
+                </h1>
+            </div>
+            <!-- Card Header - Dropdown -->
+            {% for post in posts %}
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            {% if post.closed == True %}
+                                 <i class="fa fa-lock text-black-50 mr-2"></i>
+                            {% elif post.num_comments == 0 %}
+                                <i class="fa fa-frown-o text-danger mr-2"></i>
+                            {% elif post.num_comments < 2 %}
+                                <i class="fa fa-book text-warning mr-2"></i>
+                            {% elif post.num_comments < 4 %}
+                                <i class="fa fa-rocket text-primary mr-2"></i>
+                            {% elif post.num_comments >= 4 %}
+                                <i class="fa fa-fire text-success mr-2"></i>
+                            {% endif %}
+                            <span>
+                                {{post.title}}
+                            </span>
+                        </h6>
+                        <a href="{% url 'forum:detail' post.slug|slugify %}" class="btn btn-outline-primary">
+                            View Post
+                        </a>
+
+                        {% if request.user.username == post.user.username %}
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-danger" type="submit" name="delete-post" value="{{ post.slug }}">
+                                    Delete Post
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <p>{{post.content}} </p>
+                    </div>
+                    <div class="card-footer py-3 d-flex flex-row align-items-center justify-content-between">
+                        <div>
+                            <span class="last-reply">
+                                Posted on {{post.date|date}} by <b><a href="">{{post.user|title}}</a></b>
+                            </span>
+                            {% if post.last_reply %}
+                                <br><span class="last-reply">
+                                    Last Reply on {{post.last_reply.date|date}} by <a href="">{{post.last_reply.user|title}}</a>
+                                </span>
+                                {% else %}
+                            {% endif %}
+                        </div>
+                        <span>{{post.num_comments}} comments <br> {% get_hit_count for post %} views</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    <div class="col-xl-4 col-lg-5">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">
+                Engagement Scores
+            </h1>
+        </div>
+        <div class="card shadow py-4 d-sm-flex justify-content-between mb-4 px-4">
+            <h6 class="my-3">
+                <i class="fa fa-frown text-danger fa-lg mr-3"></i>
+                Zero Engagement Topic
+            </h6>
+            <h6 class="my-3">
+                <i class="fa fa-book text-warning fa-lg mr-3"></i>
+                Low Engagement Topic
+            </h6>
+            <h6 class="my-3">
+                <i class="fa fa-rocket text-primary fa-lg mr-3"></i>
+                High Engagement Topic
+            </h6>
+            <h6 class="my-3">
+                <i class="fa fa-fire text-success fa-lg mr-3"></i>
+                Popular Topic
+            </h6>
+            <h6 class="my-3">
+                <i class="fa fa-lock text-black-50 fa-lg mr-3"></i>
+                Closed Topic
+            </h6>
+        </div>
+    </div>
+
+
+
+    {% endblock content %}
+

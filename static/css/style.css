@@ -15,7 +15,7 @@ html{
 a{
     color:#FF0042;
     font-weight: bolder;
-    text-decoration: none;
+    text-decoration: none;!important;
 }
 
 h1{
@@ -129,12 +129,34 @@ header{
     margin-inline: 10px;
 }
   /* Nav Bar styles */
-.navbar{
+/* .navbar{
     display:flex;
     align-items: center;
 }
-.navigation{
-    background-color:#52057b;
+*/
+.navbarSupportedContent{
+    background-color:#3a3a3a;
+    padding: 10px;
+    width: 65%;
+    display: inline-block;
+    border-radius: 5px;
+    max-height: 80px;
+    margin-right:10px;
+} 
+
+.close-icon i{
+    font-size:60px;
+    float: left;
+    cursor: pointer;
+}
+
+#navbar-nav my-2 my-lg-0{
+    list-style-type:none;
+    overflow: hidden;
+}
+
+#nav-item active a{
+    background-color:#FFFFFF;
     padding: 10px;
     width: 65%;
     display: inline-block;
@@ -143,30 +165,9 @@ header{
     margin-right:10px;
 }
 
-.close-icon i{
-    font-size:60px;
-    float: left;
-    cursor: pointer;
-}
-
-.nav-list{
-    list-style-type:none;
-    overflow: hidden;
-}
-
-.nav-item a{
-    float: right;
-    display:block;
-    text-align: center;
-    margin-inline: 20px;
-    font-size: 20px;
-    padding: 10px;
-    color:#fff;
-}
-
-.nav-item a:hover{
+#nav-item active a:hover{
     background-color: rgb(0,0,0,0.1);
-}
+} 
 
 .hide{
     display: none;

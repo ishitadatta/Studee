@@ -7,7 +7,7 @@ from .models import Account
 
 class AccountAdmin(UserAdmin):
     model = Account
-    list_display = ('username', 'firstname', 'lastname', 'type', 'is_admin', 'is_staff','is_active','password')
+    list_display = ('username', 'firstname', 'lastname', 'type', 'is_admin', 'is_staff','is_active','password', 'profile_pic')
     search_fields = ('username', 'firstname', 'lastname')
 
     filter_horizontal = ()

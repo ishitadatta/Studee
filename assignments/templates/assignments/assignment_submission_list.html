@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Assignments{% endblock %}
+
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <a class="h6 mb-5 text-gray-800" href="{% url 'assignments:home' %}">
+        Assignments
+    </a>
+    <i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+    <br><br>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            {{ assignment.name|title }} Submissions
+        </h1>
+    </div>
+    <div class="col-xl-8 col-lg-7">
+        <!-- Card Header - Dropdown -->
+        {% for submission in submissions %}
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        {{submission.user|title}}
+                    </h5>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <a href="{{ submission.file.url }}" download="">{{ submission.file.name|slice:'12:' }}</a>
+                </div>
+                <div class="card-footer py-3">
+                    {% if submission.marks is None %}
+                        <form method="post" class="d-flex flex-row align-items-center justify-content-between">
+                            {% csrf_token %}
+                            <div class="input-group col-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="grade">Marks</label>
+                                </div>
+                                <input type="text" name="student" value="{{ submission.user.username }}" hidden>
+                                <input type="number" class="form-control" id="grade" name="grade" min=0 max={{ assignment.marks }} step=1 value=0>
+                            </div>
+                            <div class="" style="width: fit-content">
+                                <button class="btn btn-outline-primary mx-4" type="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    {% else %}
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <div>
+                                Marks: {{ submission.marks }}
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-primary mx-4" type="submit" disabled>
+                                    Graded
+                                </button>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{#    <div class="container">#}
+{##}
+{#        <div class="col-12 col-sm-6 col-md-10">#}
+{#                    <strong><h3>Assignments</h3></strong>#}
+{#        <hr/>#}
+{#            {% for foo in assignment_submission %}#}
+{##}
+{##}
+{#                <p> <h4>Name</h4> {{ foo.name }} </p>#}
+{##}
+{#                <p> <h4>Id</h4> {{ foo.university_id }} </p>#}
+{#                <hr/>#}
+{#                <p> <h4>Answer</h4> {{ foo.content }}  </p>#}
+{##}
+{#                <br/>#}
+{#                <a href="{% url 'assignments:assignment-submission-delete' foo.id %}">Delete Assignment</a>#}
+{#                  <hr/>#}
+{#            {% endfor %}#}
+{##}
+{##}
+{##}
+{##}
+{#            <br/>#}
+{##}
+{##}
+{#            <br/>#}
+{##}
+{##}
+{#        </div>#}
+{##}
+{#    </div>#}
+{% endblock %}

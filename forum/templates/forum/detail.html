@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load hitcount_tags %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <a class="h6 mb-5 text-gray-800" href="{% url 'forum:home' %}">
+        Forum
+    </a>
+    <i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+    <a class="h6 mb-5 text-gray-800" href="{% url 'forum:posts' post.categories.slug|slugify %}">
+        {{post.categories.title}}
+    </a>
+    <i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+    <br><br>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            {{post.title}} (Read by {% get_hit_count for post %})
+        </h1>
+        {% if request.user.username == post.user.username %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger" type="submit" name="delete-post" value="{{ post.slug }}">
+                    Delete Post
+                </button>
+            </form>
+        {% endif %}
+    </div>
+    <div class="row mt-3">
+        <!-- Area Chart -->
+        <div class="col-xl-8 col-lg-7">
+            <!-- Card Header - Dropdown -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        {{post.title}}
+                    </h6>
+
+                    <div class="row">
+                        <img src="{{post.user.profile_pic.url}}" alt="{{ post.user }}" class="mr-1 my-auto">
+                        <div class="flex-wrap">
+                            <b><a href="">{{post.user|title}}</a></b> <small>({{post.user.type}})</small>
+                            <div><small>{{post.user.num_posts}} Posts {{post.user.points}} Points</small></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <p>{{post.content}} </p>
+                    {% for tag in post.get_tags %}
+                        <span class="badge badge-primary">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="card-footer">
+                    {% if request.user.is_authenticated %}
+                        <form method="POST" class="">
+                        {% csrf_token %}
+                            <div class="input-group" style="margin-top: 1rem">
+                                <label for="comment-content" hidden></label>
+                                {{ comment_form.content}}
+                                <div class="input-group-append">
+                                    <button class="btn input-group-text btn-primary btn-block waves-effect waves-light" type="submit">
+                                        Comment
+                                    </button>
+                                </div>
+                                {% for error in comment_form.content.errors %}
+                                    <p style="color:red;">
+                                        {{error}}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                        </form>
+                        <!--end form-group-->
+                    {% else %}
+                        <div class="">
+                            Please <a href="{% url 'authentication:login' %}"><b>login</b></a> to comment on this post
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 text-primary text-uppercase mb-3" style="text-align: center; cursor: pointer">
+                <span id="show-comments" onclick="showComments()">
+                    Show Comments <i class="fa fa-caret-down fa-lg mx-1"></i>
+                </span>
+                <span id="hide-comments" onclick="hideComments()" style="display:none;">
+                    Hide Comments <i class="fa fa-caret-up fa-lg mx-1"></i>
+                </span>
+            </div>
+            <div class="mb-4">
+                {% for comment in comments %}
+                <div class="card shadow col-11 mb-3 border-left-primary mr-2 ml-auto px-0 comments" style="display: none">
+                    <!-- Card Body -->
+                    <div class="card-body d-flex flex-row align-items-center justify-content-between">
+                        <p class="col-8">{{comment.content}} </p>
+                        <div class="row">
+                            <img src="{{comment.user.profile_pic.url}}" alt="{{ comment.user }}'s Picture" class="mr-1 my-auto">
+                            <div class="flex-wrap">
+                                <b><a href="">{{comment.user|title}}</a></b> <small>({{comment.user.type}})</small>
+                                <div><small>{{comment.user.num_posts}} Posts {{comment.user.points}} Points</small></div>
+                            </div>
+                            {% if request.user.username == comment.user.username %}
+                                <div class="ml-3" style="vertical-align: center; display: flex; align-items: center">
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-lg text-primary"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                                <form action="" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown-item" type="submit" name="delete-comment" value="{{ comment.id }}">
+                                                        Delete comment
+                                                    </button>
+                                                </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        {% if request.user.is_authenticated %}
+                            <form method="POST">
+                            {% csrf_token %}
+                                <div class="input-group" style="margin-top: 1rem">
+                                    <input class="form-group" name="comment_id" value="{{ comment.id }}" hidden>
+                                    <label for="reply-content" hidden></label>
+                                    {{ reply_form.content}}
+                                    <div class="input-group-append">
+                                        <button class="btn input-group-text btn-primary btn-block waves-effect waves-light" type="submit">
+                                            Reply
+                                        </button>
+                                    </div>
+                                    {% for error in reply_form.content.errors %}
+                                        <p style="color:red;">
+                                            {{error}}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            </form>
+                            <!--end form-group-->
+                        {% else %}
+                            <div class="">
+                                Please <a href="{% url 'authentication:login' %}"><b>login</b></a> to reply to this comment
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if comment.replies|length > 0 %}
+                   <div class="col-12 text-primary text-uppercase mb-3 comments" style="text-align: center; cursor: pointer; display: none">
+                        <span id="reply-show-{{ comment.id }}" onclick="showReplies({{ comment.id }})">
+                            View Replies to this Comment <i class="fa fa-caret-down fa-lg mx-1"></i>
+                        </span>
+                        <span id="reply-hide-{{ comment.id }}" onclick="hideReplies({{ comment.id }})" style="display:none;">
+                            Hide Replies <i class="fa fa-caret-up fa-lg mx-1"></i>
+                        </span>
+                    </div>
+                {% endif %}
+                {% for reply in comment.replies %}
+                    <div class="card shadow mb-3 col-10 border-left-info mr-2 ml-auto reply-for-{{ comment.id }}" style="display: none">
+                        <!-- Card Body -->
+                        <div class="card-body d-flex flex-row align-items-center justify-content-between">
+                            <p>{{reply.content}} </p>
+                            <div class="row">
+                                <img src="{{reply.user.profile_pic.url}}" alt="{{ reply.user }}'s Picture" class="mr-1 my-auto">
+                                <div class="flex-wrap">
+                                    <b><a href="">{{reply.user|title}}</a></b> <small>({{reply.user.type}})</small>
+                                    <div><small>{{reply.user.num_posts}} Posts {{reply.user.points}} Points</small></div>
+                                </div>
+                                {% if request.user.username == reply.user.username %}
+                                    <div class="ml-3" style="vertical-align: center; display: flex; align-items: center">
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-lg text-info"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                                <form action="" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown-item" type="submit" name="delete-reply" value="{{ reply.id }}">
+                                                        Delete reply
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow py-4 d-sm-flex align-items-center justify-content-between mb-4">
+                <h6 class="col-6 mx-4 my-2 py-3" style="position: absolute; right: 0">
+                    Higher engagement on the forum can earn you <b>extra</b> credits
+                </h6>
+                <img class="card-img-top mx-auto d-block col-11 my-5" src="{% static 'undraw_social_interaction_re_dyjh1.png' %}" alt="an image">
+                <div class="col-6 mx-4 my-2 py-3 flex-wrap" style="position: absolute; left: 5%; bottom: 0">
+                    <h6><b>Posts</b><br><i class="fas fa-award text-warning"></i>  0.25 credits </h6> 
+                    <h6><b>Comments</b><br><i class="fas fa-award text-warning"></i>  0.1 credits </h6>
+                    <h6><b>Replies</b><br><i class="fas fa-award text-warning"></i>  0.1 credits </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        img {
+            width:45px;
+            height:45px;
+            border-radius: 50%;
+        }
+    </style>
+    <script>
+        function showReplies(id) {
+            document.getElementById("reply-hide-".concat(id)).style.display = "block";
+            document.getElementById("reply-show-".concat(id)).style.display = "none";
+            var y = document.getElementsByClassName("reply-for-".concat(id));
+            for (var i=0;i<y.length;i++)
+                y[i].style.display = "block";
+        }
+        function hideReplies(id) {
+            document.getElementById("reply-hide-".concat(id)).style.display = "none";
+            document.getElementById("reply-show-".concat(id)).style.display = "block";
+            var y = document.getElementsByClassName("reply-for-".concat(id));
+            for (var i=0;i<y.length;i++)
+                y[i].style.display = "none";
+        }
+        function showComments() {
+            document.getElementById("hide-comments").style.display = "block";
+            document.getElementById("show-comments").style.display = "none";
+            var y = document.getElementsByClassName("comments");
+            for (var i=0;i<y.length;i++)
+                y[i].style.display = "block";
+        }
+        function hideComments() {
+            document.getElementById("hide-comments").style.display = "none";
+            document.getElementById("show-comments").style.display = "block";
+            var y = document.getElementsByClassName("comments");
+            for (var i=0;i<y.length;i++)
+                y[i].style.display = "none";
+        }
+    </script>
+
+{% endblock content %}

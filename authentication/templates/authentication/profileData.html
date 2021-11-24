@@ -1,0 +1,79 @@
+<div class="row mt-5">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <p class="profile-header mb-0 text-primary font-weight-bold">
+                    Email ID
+                </p>
+                <p>
+                    {{user.username}}
+                </p>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <p class="profile-header mb-0 text-primary font-weight-bold">
+                    Total Credits
+                </p>
+                <p>
+                    {{user.points}}
+                </p>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <p class="profile-header mb-0 text-primary font-weight-bold">
+                    Forum Credits
+                </p>
+                <p>
+                    {{user.forum_credits}}
+                </p>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <p class="profile-header mb-0 text-primary font-weight-bold">
+                    Assignment Credits
+                </p>
+                <p>
+                    {{user.assignment_credits}}
+                </p>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <p class="profile-header mb-0 text-primary font-weight-bold">
+                    Course Credits
+                </p>
+                <p>
+                    {{user.course_credits}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+    {% if request.get_full_path == '/profile/' %}
+        <div class="col-md-4">
+            <p class="profile-header mb-0 text-primary font-weight-bold">
+                Bio
+            </p>
+            <p>
+                {{user.bio}}
+            </p>
+        </div>
+    {% elif request.get_full_path == '/editProfile/' %}
+        <div class="col-md-4">
+            <p class="profile-header mb-0 text-primary font-weight-bold">
+                Bio
+            </p>
+            <p>
+                {{profile_form.bio}}
+            </p>
+        </div>
+        <div class="row col-md-12 justify-content-end px-4 mt-3">
+            <div>
+                <a href="{% url 'authentication:profile' %}" class="btn btn-outline-danger btn-block waves-effect waves-light">
+                    CANCEL
+                </a>
+            </div>
+            <div class="ml-5 mr-4">
+                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">
+                    SAVE
+                </button>
+            </div>
+        </div>
+    {% endif %}
+
+</div>

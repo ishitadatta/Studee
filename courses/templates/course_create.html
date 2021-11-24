@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Course Create {% endblock %}
+
+{% block content %}
+<a class="h6 mb-5 text-gray-800" href="{% url 'courses:home' %}">
+    Courses
+</a>
+<i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+<br><br>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">
+        Create Course
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">
+                    Course Name
+                </label>
+                <p>
+                    {{ create_form.name }}
+                </p>
+                {% for error in create_form.name.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div><!--end form-group-->
+            <div class="form-group">
+                <label for="content">
+                    Course Description
+                </label>
+                <p>
+                    {{ create_form.description }}
+                </p>
+                {% for error in create_form.description.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="credits">
+                    Course Credits
+                </label>
+                <p>
+                    {{ create_form.credits }}
+                </p>
+                {% for error in create_form.credits.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="form-group mb-0 row">
+                <div class="col-12 mt-2">
+                    <button class="btn btn-primary  btn-block waves-effect waves-light" type="submit" name="create-course" value="{{ id }}">
+                        Create Course
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow py-4 d-sm-flex align-items-center justify-content-between mb-4">
+            <h5 class="mx-5 py-3">
+                Enroll for a new course, and win credits!
+            </h5>
+            <img class="card-img-top mx-auto d-block p-5" src="{% static 'undraw_teaching_f-1-cm.svg' %}" alt="an image">
+        </div>    
+    </div>
+</div>
+
+{% endblock %}

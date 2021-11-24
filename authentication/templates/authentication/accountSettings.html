@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            Account Settings
+        </h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <a class="col-xl-3 col-md-6 mb-4" href="{% url 'password_change' %}">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">
+                                Change Password</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-solid fa-lock fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <a class="col-xl-3 col-md-6 mb-4" href="{% url 'authentication:deleteuser' %}">
+            <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
+                                Delete Account
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-solid fa-ban fa-2x text-danger"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endblock %}

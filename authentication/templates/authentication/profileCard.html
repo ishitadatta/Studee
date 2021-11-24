@@ -1,0 +1,54 @@
+<div class="card shadow-sm profile-card py-5">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+        {% endfor %}
+    {% endif %}
+    {% for field in profile_form %}
+        {% for error in field.errors %}
+            <p style="color:red;">{{error}}</p>
+        {% endfor %}
+    {% endfor %}
+    <div class="row">
+        <div class="col-lg-2 user-image-class">
+            {% if request.get_full_path == '/editProfile/' %}
+                <label for="imageId" class="rounded-circle image">
+                    <img src="{{request.user.profile_pic.url}}" id="img" class="rounded-circle user-image-edit" alt="profile_photo"/>
+                    <div class="edit-photo">
+                        <i class="fa fa-camera edit-photo-icon "></i>
+                    </div>
+{#                    <input type="file" id="removePhoto" value="../media/default.png">Remove photo</input>#}
+                </label>
+                <input type="file" style="display: none" name="profile_pic" id="imageId" class="user-image-edit">
+            {% else %}
+                <img src="{{request.user.profile_pic.url}}" class="rounded-circle user-image"/>
+            {% endif %}
+        </div>
+        <div class="col-lg-10 user-information">
+            <p class="header">
+                {{request.user|title}}
+                <a href="{% url 'authentication:editProfile' %}" style="text-decoration: none">
+                    {% if request.get_full_path == '/profile/' %}
+                        <i class="fa fa-pen profile-button fa-xs mx-2"></i>
+                    {% endif %}
+                </a>
+            </p>
+            <p>{{ request.user.type }}</p>
+        </div>
+    </div>
+    {% include 'authentication/profileData.html' %}
+</div>
+
+<script>
+    $(function(){
+        $('#imageId').change(function(){
+            var input = this;
+            var url = $(this).val();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        });
+    });
+</script>

@@ -1,0 +1,80 @@
+<div class="assignment-{{ assignment.id }}-form">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">
+                Assignment Title
+            </label>
+            <p>
+                {{ create_form.title }}
+            </p>
+            {% for error in create_form.title.errors %}
+                <p style="color:red;">
+                    {{error}}
+                </p>
+            {% endfor %}
+        </div><!--end form-group-->
+        <div class="form-group">
+            <label for="content">
+                Assignment
+            </label>
+            <p>
+                {{ create_form.content }}
+            </p>
+            {% for error in create_form.content.errors %}
+                <p style="color:red;">
+                    {{error}}
+                </p>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="content">
+                Course
+            </label>
+            <p>
+                {{ create_form.course }}
+            </p>
+            {% for error in create_form.content.errors %}
+                <p style="color:red;">
+                    {{error}}
+                </p>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="marks">
+                Marks
+            </label>
+            <p>
+                {{ create_form.marks }}
+            </p>
+            {% for error in create_form.marks.errors %}
+                <p style="color:red;">
+                    {{error}}
+                </p>
+            {% endfor %}
+        </div>
+        {% localtime on %}
+            <div class="form-group">
+                <label for="duration">
+                    Deadline
+                </label>
+                <p>
+                    {{ create_form.deadline }}
+                </p>
+                {% for error in create_form.deadline.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div>
+        {% endlocaltime %}
+        <div class="form-group mb-0 row">
+            <div class="col-12 mt-2">
+                <button class="btn btn-primary  btn-block waves-effect waves-light" type="submit">
+                    Create Assignment
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

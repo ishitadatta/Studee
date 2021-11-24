@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">
+        Courses
+    </h1>
+    {% if request.user.type == 'Teacher' %}
+        <a href="{% url 'courses:create' %}" class="btn btn-primary">
+            Create a Course
+        </a>
+    {% endif %}
+</div>
+<div class="row">
+    <div class="col-xl-8 col-lg-7">
+        <!-- Card Header - Dropdown -->
+        {% for course in courses %}
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between assignment-{{ assignment.id }}">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        {{course.name}}
+                    </h5>
+                    {% if request.user.type == 'Teacher' %}
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-lg text-primary"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{% url 'courses:create' course.id|slugify %}">
+                                    Edit Course
+                                </a>
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <button class="dropdown-item" type="submit" name="delete-course" value="{{ course.id }}">
+                                        Delete Course
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% else %}
+                        {% if course.id in enrolled %}
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-danger" type="submit" name="withdraw-course" value="{{ course.id }}">
+                                    Withdraw from Course
+                                </button>
+                            </form>
+                        {% else %}
+                            {% if request.user.course_credits|add:course.credits < 24 %}
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-primary" type="submit" name="enroll-course" value="{{ course.id }}">
+                                        Enroll to Course
+                                    </button>
+                                </form>
+                            {% else %}
+                                <button class="btn btn-outline-danger" type="button" disabled>
+                                    Maximum Course Credits Reached
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <p>{{course.description}} </p>
+                </div>
+                <div class="card-footer d-flex flex-row align-items-center justify-content-between">
+                    <span>
+                        Faculty: <b>{{ course.faculty|title }}</b>
+                    </span>
+                    <span>
+                        <i class="fas fa-award mx-1 text-warning"></i> <b>{{course.credits}}</b>
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow py-4 d-sm-flex align-items-center justify-content-between mb-4">
+            <h5 class="mx-5 py-3">
+                Enroll for a new course, and win credits!
+            </h5>
+            <img class="card-img-top mx-auto d-block p-5" src="{% static 'undraw_teaching_f-1-cm.svg' %}" alt="an image">
+        </div>    
+    </div>
+</div>
+{% endblock %}

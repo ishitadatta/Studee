@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Student Vaccination Roster{% endblock %}
+
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div style="color:red;">
+                    {{ message|safe }}
+                </div>
+            {% else %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    {{ message|safe }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            Student Vaccination Status
+        </h1>
+    </div>
+    <div class="col-xl-8 col-lg-7">
+        <!-- Card Header - Dropdown -->
+        {% for preference in preferences %}
+            {% if preference.user.type == 'Student' %}
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h5 class="m-0 font-weight-bold text-primary">
+                            {{preference.user|title}}
+                        </h5>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+
+                        {% if preference.vaccination_status == 'Not Vaccinated'  %}
+                            <p class="text-danger">
+                                Vaccination Status: {{ preference.vaccination_status }}
+                            </p>
+                        {% elif preference.vaccination_status == 'Partially Vaccinated' %}
+                            <p class="text-warning">
+                                Vaccination Status: {{ preference.vaccination_status }}
+                            </p>
+                            <a href="{{ preference.file.url }}" download="">{{ preference.file.name|slice:'12:' }}</a>
+                        {% elif preference.vaccination_status == 'Fully Vaccinated' %}
+                            <p class="text-success">
+                                Vaccination Status: {{ preference.vaccination_status }}
+                            </p>
+                            <a href="{{ preference.file.url }}" download="">{{ preference.file.name|slice:'12:' }}</a>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        Class Mode: {{ preference.mode }}
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+{% endblock %}

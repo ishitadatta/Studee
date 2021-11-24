@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Delete Account
+{% endblock %}
+{% block content %}
+    <a class="h6 mb-5 text-gray-800" href="{% url 'account_settings' %}">
+        Account Settings
+    </a>
+    <i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+        <h1 class="h3 mb-0 text-gray-800">
+            Delete Account
+        </h1>
+    </div>
+    <div id="deleteAccountPanel" class="col-md-10">
+        <p class="delete-account">
+            Delete your account and your account data
+        </p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <button class="btn btn-outline-danger btn-block waves-effect waves-light col-md-2" type="submit" name="delete-account">
+                Delete
+            </button>
+        </form>
+
+    </div>
+{% endblock %}

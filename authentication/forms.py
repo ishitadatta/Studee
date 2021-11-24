@@ -7,13 +7,11 @@ from .models import Account
 
 class AccountAuthenticateForm(forms.ModelForm):
     username = forms.CharField(
-        widget=forms.EmailInput(
-            attrs={'class': 'form-control', 'placeholder': 'Enter Email ID'})
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Email ID'})
     )
     password = forms.CharField(
         label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Password'})
     )
-
     class Meta:
         model = Account
         fields = ('username', 'password')
@@ -24,8 +22,11 @@ class AccountAuthenticateForm(forms.ModelForm):
         if not authenticate(username=username, password=password):
             raise forms.ValidationError("Invalid Login")
 
+
 # REGISTRATION FORM
 class RegistrationForm(UserCreationForm):
+    # email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
+
     password1 = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter password'}))
     password2 = forms.CharField(
@@ -43,4 +44,14 @@ class RegistrationForm(UserCreationForm):
             'firstname': forms.TextInput(attrs={'class': 'form-control'}),
             'lastname': forms.TextInput(attrs={'class': 'form-control'}),
             'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
+        }
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Account
+        fields = ("profile_pic", "bio")
+
+        widgets = {
+            'bio': forms.Textarea(attrs={'class': 'form-control'})
         }

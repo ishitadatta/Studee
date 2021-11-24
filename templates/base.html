@@ -1,82 +1,172 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Dento - Dentist &amp; Medical HTML Template">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Studee</title>
 
-  <!-- Title -->
-  <title>Studie {% block title %} {% endblock %}</title>
+    <!-- Custom fonts for this template-->
+{#    <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.8/jarallax.min.js" integrity="sha512-ieMvcpXFcmaKJukz4J6H3C/jNUU6S1UUPDuAHiyk3Vxx8NEnKbGu+r3fGtK8+2D7Im1+ASmHCyPE0mRGL1rdaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.8/jarallax-video.min.js" integrity="sha512-gFcUTdQpdNIemLZK51GuahUFfhRmkOgE5Ckoj5MeONAXkOGlDxDARgWAehiVFby3RhNsfiVxwIKf2w0eQRPRpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <link rel="shortcut icon" href="{% static 'Favicon.png' %}" type="image/x-icon">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-  <!-- Favicon -->
-  
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js/default-assets/active.js' %}"></script>
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+        .user-image, .user-image-edit {
+            height : 100px;
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .edit-photo {
+            position: relative;
+            top: -100px;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            align-items: center;
+            margin-left: inherit;
+            margin-right: inherit;
+            background-color: rgba(145, 145, 145, 0.2);
+            border-radius: inherit;
+            opacity: 0;
+            animation-timing-function: ease-in;
+            animation-duration: 1s;
+            cursor: pointer;
+        }
+        .edit-photo-icon {
+            color: #ffffff;
+            margin-top: 38px;
+        }
 
-  <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        .edit-photo:hover {
+            opacity: 1;
+        }
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        .user-image-class{
+            text-align: center;
+            align-items: center;
+            height: 100px;
+        }
 
-    {% block styles %} {% endblock %}
+        .profile-card {
+            padding: 2rem;
+            margin-top: 2rem;
+        }
 
+        .user-information {
+            padding-left: 2rem;
+        }
+
+        .user-details, .profile-header {
+            font-size: 0.9rem;
+            color: #898989;
+        }
+
+        .header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        {% include 'sidebar.html' %}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-<body>
-   {% include 'nav.html' %}
+            <!-- Main Content -->
+            <div id="content">
+                {% include 'topbar.html' %}
+                <!-- Begin Page Content -->
+                <div class="container-fluid" style="min-height: 100vh">
+                    {% block content %}
 
-
-       {% block content %}
-      {% endblock %}
-
-
-
-
-   <footer class="footer-area bg-img bg-success">
-    <div class="container">
-      <div class="row">
-        <!-- Single Footer Widget -->
-        <div class="col-12 col-sm-6 col-lg-6">
-          <div class="single-footer-widget">
-            <div class="footer-contact">
-              
+                    {% endblock %}
+                </div>
             </div>
-          </div>
-        </div>
+        <!-- End of Main Content -->
 
-    <!-- Copywrite Area -->
-    <div class="" style="background-color: blue;">
-      <div class="row">
-        <div class="col-12">
-          <div class="copywrite-content">
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Studie |
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; All rights reserved | Studee | Engage <script>document.write(new Date().getFullYear());</script></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
         </div>
-      </div>
+        <!-- End of Content Wrapper -->
+
     </div>
-  </footer>
-  <!-- ***** Footer Area End ***** -->
+    <!-- End of Page Wrapper -->
 
-  <!-- ******* All JS ******* -->
-  <!-- jQuery js -->
-  <script src="{% static 'js/jquery.min.js' %}"></script>
-  <!-- Popper js -->
-  <script src="{% static 'js/popper.min.js' %}"></script>
-  <!-- Bootstrap js -->
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <!-- All js -->
-  <script src="{% static 'js/dento.bundle.js' %}"></script>
-  <!-- Active js -->
-  <script src="{% static 'js/default-assets/active.js' %}"></script>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="{% url 'authentication:logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-   {% block javascripts %} {% endblock %}
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+    <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
 </body>
 
 </html>

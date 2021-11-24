@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load tz %}
+{% load static %}
+{% block title %} Assignment Create {% endblock %}
+{% block content %}
+
+<a class="h6 mb-5 text-gray-800" href="{% url 'assignments:home' %}">
+    Assignments
+</a>
+<i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
+<br><br>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">
+        Create Assignment
+    </h1>
+</div>
+
+<div class="row">
+    
+    <div class="col-md-6">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">
+                    Assignment Title
+                </label>
+                <p>
+                    {{ create_form.title }}
+                </p>
+                {% for error in create_form.title.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div><!--end form-group-->
+            <div class="form-group">
+                <label for="content">
+                    Assignment
+                </label>
+                <p>
+                    {{ create_form.content }}
+                </p>
+                {% for error in create_form.content.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="content">
+                    Course
+                </label>
+                <p>
+                    {{ create_form.course }}
+                </p>
+                {% for error in create_form.content.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="marks">
+                    Marks
+                </label>
+                <p>
+                    {{ create_form.marks }}
+                </p>
+                {% for error in create_form.marks.errors %}
+                    <p style="color:red;">
+                        {{error}}
+                    </p>
+                {% endfor %}
+            </div>
+            {% localtime on %}
+                <div class="form-group">
+                    <label for="duration">
+                        Deadline
+                    </label>
+                    <p>
+                        {{ create_form.deadline }}
+                    </p>
+                    {% for error in create_form.deadline.errors %}
+                        <p style="color:red;">
+                            {{error}}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endlocaltime %}
+            <div class="form-group mb-0 row">
+                <div class="col-12 mt-2">
+                    <button class="btn btn-primary  btn-block waves-effect waves-light" type="submit" name="create-assignment" value="{{ id }}">
+                        Create Assignment
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow py-4 d-sm-flex align-items-center justify-content-between mb-4">
+            <h5 class="mx-5 py-3">
+                Remember, each assignment submission can earn you credits!
+            </h5>
+            <img class="card-img-top mx-auto d-block p-5" src="{% static 'undraw_detailed_analysis_re_tk6j.svg' %}" alt="an image">
+        </div>    
+    </div>
+</div>
+
+<script>
+    var val = "{{ user.username }}"
+    var sel = document.getElementById('id_user');
+    var opts = sel.options;
+    for (var j = 0; j < opts.length; j++) {
+        console.log(opts[j]);
+        if (opts[j].value === val) {
+            sel.selectedIndex = j;
+            break;
+        }
+    }
+</script>
+
+{% endblock %}

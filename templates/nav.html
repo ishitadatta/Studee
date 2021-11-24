@@ -1,125 +1,40 @@
 {% load static %}
-<!-- Preloader -->
-<!-- Preloader -->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js/default-assets/active.js' %}"></script>
 
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-<div id="preloader">
-    <div class="preload-content">
-        <div id="dento-load"></div>
-    </div>
-</div>
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
-<!-- ***** Header Area Start ***** -->
-<header class="header-area">
-    <!-- Top Header Area -->
-    <div class="top-header-area bg-dark">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <!-- Top Content -->
-                <div class="col-6 col-md-9 col-lg-8">
-                    <div class="top-header-content">
-                        <p>Visit the Student forum to gain daily credits</p>
-                    </div>
-                </div>
-            </div>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5 my-0">
+        <a class="navbar-brand" href="#page-top">Studee</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-0">
+                
+                <li class="nav-item"><a class="nav-link" href="{% url 'authentication:login' %}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'authentication:register' %}">Sign Up</a></li>
+     
+            </ul>
         </div>
     </div>
-    <!-- Top Header End -->
-
-    <!-- Main Header Start -->
-    <div class="main-header-area bg-primary">
-        <div class="classy-nav-container breakpoint-off">
-            <div class="container">
-                <!-- Classy Menu -->
-                <nav class="classy-navbar justify-content-between" id="dentoNav">
-
-                    <!-- Logo -->
-                    <a class="nav-brand text-white" href="">Studie
-                    </a>
-
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Menu -->
-                    <div class="classy-menu">
-
-                        <!-- Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-
-                        <!-- Nav Start -->
-                        <div class="classynav">
+</nav>
 
 
-                            <ul id="nav">
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-                                <li><a href="/">Home</a></li>
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
-                                {% if request.user.is_authenticated and request.user.role == 'instructor' %}
-
-                                    <li>
-                                        <a href="">
-                                            <span class="glyphicon glyphicon-user">
-                                                    {{ request.user.firstname }}
-                                            </span>
-                                        </a>
-                                        <ul class="dropdown">
-                                            <li><a href="{% url 'authentication:instructor-profile-update' %}"> Edit Profile</a></li>
-                                            <li><a href="{% url 'core:course' %}">Courses</a></li>
-                                            <li><a href="{% url 'core:course-create' %}"> Create Course</a></li>
-                                            <li><a href="{% url 'core:exam-submission-list' %}"> Exam Submissions</a></li>
-                                            <li><a href="{% url 'core:assignment-submission-list' %}"> Assignment Submissions</a></li>
-                                            <li><a href="{% url 'authentication:logout' %}"> Logout</a></li>
-
-                                        </ul>
-                                    </li>
-
-
-                             {% elif request.user.is_authenticated and request.user.role == 'student' %}
-                                     <li><a href="{% url 'core:course' %}">Courses</a></li>
-
-                                    <li>
-                                        <a href="">
-                                            <span class="glyphicon glyphicon-user">
-                                                    {{ request.user.firstname }}
-                                            </span>
-                                        </a>
-                                        <ul class="dropdown">
-
-                                            <li><a href="{% url 'authentication:student-profile-update' %}"> Edit Profile</a></li>
-                                            <li><a href="{% url 'authentication:logout' %}"> Logout</a></li>
-
-                                        </ul>
-                                    </li>
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
 
 
-
-                                {% else %}
-                                    <li><a href="{% url 'authentication:register' %}">Register</a>
-
-                                    </li>
-
-                                    <li>
-                                        <a href="{% url 'authentication:login' %}">
-                                            <span class="glyphicon glyphicon-user"> Login</span>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-
-                    <!-- Booking Now Button -->
-
-
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
