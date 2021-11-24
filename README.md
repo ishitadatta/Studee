@@ -12,18 +12,6 @@
   <a href="#ci/cd">CI/CD</a>
 	
 </p>
-
-## About
-Studee is a student portal application that helps students and teachers communicate both virtually and physically and helps students stay ENGAGE-ed with a credit-based system.
-<ul>  <b> Tools and Technologies</b>
-<ul>
-<li>django</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>Figma</li>
-<li>Azure Boards</li>
-
 <p align="center">
 	Developed by : <i> Ishita Datta </i>
 </p>
@@ -52,7 +40,6 @@ Studee is a student portal application that helps students and teachers communic
     <li>
       <a href="#basic-features">Basic Features</a>
       <ul>
-        <li><a href="#tracker">Vaccination Tracker</a></li>
         <li><a href="#vaccination-tracker">Vaccination Tracker</a></li>
         <li><a href="#submission">Submission tool</a></li>
         <li><a href="#online-forum">Online Forum</a></li>
@@ -77,10 +64,6 @@ Studee is a student portal application that helps students and teachers communic
 ## Basic Features
 
 ### Vaccination Tracker
- 1. Upload vaccination certificate
- 2. Credits allotted to students who have uploaded vaccination certificate
- 3. Student can select option for offline/online class (form)
- 4. Display notice for partially vaccinated students on dashboard
  1. Student can select option for offline/online class 
  2. Student can select vaccination status (not vaccinated/ partially vaccinated/ fully vaccinated)
  3. If vaccinated, student must upload latest vaccination certificate
@@ -144,8 +127,6 @@ Studee is a student portal application that helps students and teachers communic
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
  3. Enroll into course option for students
- 4. Withdraw from a course
- 5. Delete a course by course owner
  4. Withdraw from a course option for students
  5. Delete a course is user is a teacher
  6. Edit a course if user is a teacher
@@ -166,8 +147,6 @@ Studee is a student portal application that helps students and teachers communic
  6. Show calendar with event date
  7. Allow members to join a club
  8. List current members of the club
- 9. Send faculty approval request for joining club  
- 10. Faculty approval notification
  9. Send teacher approval request for joining club  
  10. Teacher approval notification
 
@@ -194,6 +173,6 @@ Studee is a student portal application that helps students and teachers communic
 2. Version control - Git & GitHub
 3. Requirement specification - Traceability Matrix
 4. Unit Testing
-5. Component Testing
-6. Positive Testing
-7. Negative Testing
+
+<i>Special thanks to my mentor Mr. Prasanna Kulkarni for his valuable advice and assistance in the development of this project.</i>
+
