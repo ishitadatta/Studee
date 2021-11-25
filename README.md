@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="static/Favicon.png" width="128"/>
+	<a href="https://studee-app.herokuapp.com/"><img src="static/Favicon.png" width="128"/></a>
 <br>
  STUDEE
   <br>
