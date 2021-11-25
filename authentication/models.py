@@ -54,7 +54,7 @@ class Account(AbstractBaseUser):
     profile_pic = models.ImageField(upload_to=get_filename, default="authentication/profile_photos/default.png")
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    type = models.CharField(default='Student', max_length=8)
+    type = models.CharField(default='Student', max_length=7, choices=[("Student", "Student"), ("Teacher", "Teacher")])
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
@@ -65,6 +65,12 @@ class Account(AbstractBaseUser):
 
     def __str__(self):
         return self.firstname + ' ' + self.lastname
+    
+    def has_perm(self, perm, obj=None):
+        return self.is_admin
+
+    def has_module_perms(self, app_label):
+        return True
 
     def num_posts(self):
         from forum.models import Post
@@ -145,9 +151,3 @@ class Account(AbstractBaseUser):
         from clubs.models import EventAttendees
         return list(EventAttendees.objects.filter(attendee__username=self.username).values_list('event__id', flat=True))
 
-# class Search(models.Model):
-#     name = models.CharField(max_length=200)
-#     description = models.TextField()
-
-#     def __str__(self):
-#         return str(self.name)

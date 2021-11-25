@@ -14,7 +14,7 @@ from authentication.models import Account
 from courses.models import Course
 
 
-# ASSIGNMENT CREATE VIEW
+# Create assignment view
 @login_required
 def AssignmentCreateView(request, id=None):
     if request.user.type == 'Teacher':
@@ -57,7 +57,7 @@ def AssignmentCreateView(request, id=None):
         return redirect('assignments:home')
 
 
-# VIEW FOR ASSIGNMENT LIST
+# Assignment list view
 @login_required
 def AssignmentView(request):
     if request.method == 'POST':
@@ -85,7 +85,7 @@ def AssignmentView(request):
         return HttpResponse(template.render(context, request))
 
 
-# ASSIGNMENT SUBMISSION VIEW
+# Assignment submission view for student
 @login_required
 def AssignmentSubmissionView(request, id):
     if request.user.type == 'Student':
@@ -127,7 +127,7 @@ def AssignmentSubmissionView(request, id):
         return redirect('assignments:home')
 
 
-# ASSIGNMENT SUBMISSION VIEW
+# Submitted assignment view for teacher
 @login_required
 def SubmittedAssignment(request, id):
     if request.method == 'POST':
@@ -145,7 +145,7 @@ def SubmittedAssignment(request, id):
         return HttpResponse(template.render(context, request))
 
 
-# View FOR Assignment Submission List
+# Assignment submission list view
 @login_required
 def AssignmentSubmissionListView(request, id):
     if request.method == 'POST':
@@ -166,7 +166,7 @@ def AssignmentSubmissionListView(request, id):
         }
         return HttpResponse(template.render(context, request))
 
-
+# Assignment submission deadlines
 def get_deadlines(assignments):
     assignment_list = []
     for assignment in assignments:

@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load days_until %}
-{% block title %}Assignments{% endblock %}
+{% block title %}
+    Assignments
+{% endblock %}
 
 {% block content %}
     {% if messages %}
@@ -57,11 +59,13 @@
                         </div>
                     {% endif %}
                 </div>
+                
                 <!-- Card Body -->
                 <div class="card-body assignment-{{ assignment.id }}">
                     <p>{{assignment.content}} </p>
                     <p>{{assignment.marks}} Mark{{assignment.marks|pluralize}} </p>
                 </div>
+                
                 <div class="card-footer d-flex flex-row align-items-center justify-content-between assignment-{{ assignment.id }}">
                     <div>
                         <span>

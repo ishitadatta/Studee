@@ -2,7 +2,7 @@ from django import forms
 from .models import Preference
 
 
-# PREFERENCE FORM
+# Preference form
 class PreferenceForm(forms.ModelForm):
     mode = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}), choices=[("Online", "Online"), ("Offline", "Offline")])
     vaccination_status = forms.ChoiceField(

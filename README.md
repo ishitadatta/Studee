@@ -12,18 +12,6 @@
   <a href="#ci/cd">CI/CD</a>
 	
 </p>
-
-## About
-Studee is a student portal application that helps students and teachers communicate both virtually and physically and helps students stay ENGAGE-ed with a credit-based system.
-<ul>  <b> Tools and Technologies</b>
-<ul>
-<li>django</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>Figma</li>
-<li>Azure Boards</li>
-
 <p align="center">
 	Developed by : <i> Ishita Datta </i>
 </p>
@@ -52,7 +40,6 @@ Studee is a student portal application that helps students and teachers communic
     <li>
       <a href="#basic-features">Basic Features</a>
       <ul>
-        <li><a href="#tracker">Vaccination Tracker</a></li>
         <li><a href="#vaccination-tracker">Vaccination Tracker</a></li>
         <li><a href="#submission">Submission tool</a></li>
         <li><a href="#online-forum">Online Forum</a></li>
@@ -77,19 +64,16 @@ Studee is a student portal application that helps students and teachers communic
 ## Basic Features
 
 ### Vaccination Tracker
- 1. Upload vaccination certificate
- 2. Credits allotted to students who have uploaded vaccination certificate
- 3. Student can select option for offline/online class (form)
- 4. Display notice for partially vaccinated students on dashboard
  1. Student can select option for offline/online class 
  2. Student can select vaccination status (not vaccinated/ partially vaccinated/ fully vaccinated)
  3. If vaccinated, student must upload latest vaccination certificate
  4. Display notice for students on dashboard to update vaccination status not done
  5. Teacher will receive list of all student preferences
+ 
 
 ### Submission 
  1. Teacher can create a new assignment(assignment title, assignment detail, assignment course, marks, submission due date)
- 2. Students can view assignments
+ 2. Students can view assignments if the student is enrolled in the course
  3. Student assignment submission form - to upload assignment document
  4. Teacher can view assignment submissions
  5. Teacher can download each assignment
@@ -130,6 +114,8 @@ Studee is a student portal application that helps students and teachers communic
  7. Superuser for admin privileges
  8. Logout 
  9. Session storage
+ 10. Automatic login for user if he/she is already logged in
+ 11. Display account successfully created message for new users
 
 ### Credit System
  1. Credits earned for posts on forum
@@ -139,40 +125,51 @@ Studee is a student portal application that helps students and teachers communic
  5. Credits earned from uploading vaccination certificate
  6. Credit distribution split-up representation using Chart.js
  7. Credit redeem options
+ 8. Display student with highest credits as 'Star student' in dashboard
 
 ### Courses
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
- 3. Enroll into course option for students
- 4. Withdraw from a course
- 5. Delete a course by course owner
- 4. Withdraw from a course option for students
- 5. Delete a course is user is a teacher
- 6. Edit a course if user is a teacher
+ 3. Enroll into course option for students 
+ 4. Award credits if enrolled into course
+ 5. Withdraw from a course option for students
+ 6. Deduct credits if course withdrawn 
+ 7. Delete a course is user is a teacher
+ 8. Edit a course if user is a teacher
 
 ### User Profile
  1. Upload profile picture
- 2. Change password
- 3. Edit Profile
- 4. Delete Profile
- 5. Minimise dashboard side drawer
+ 2. View total credits
+ 3. View user email id
+ 4. Update bio
+ 5. Choose to cancel or save current changes
+
+
 
 ### Clubs
  1. Create a club (club name, club description, approval required) 
- 2. Founders must have high credits (30 credits required to create a club)
- 3. Make creater of the club, the founder of a club 
- 4. Create an event (event name, date, location, duration, description)
- 5. Attend an event (credits awarded)
- 6. Show calendar with event date
- 7. Allow members to join a club
- 8. List current members of the club
- 9. Send faculty approval request for joining club  
- 10. Faculty approval notification
- 9. Send teacher approval request for joining club  
- 10. Teacher approval notification
+ 2. Student founders must have high credits (30 credits required to create a club)
+ 3. Teacher club founders can create clubs without having minimum credit requirement
+ 4. Make creater of the club, the founder of a club 
+ 5. Create an event (event name, date, location, duration, description)
+ 6. Attend an event (credits awarded)
+ 7. Skip an event (credits deducted)
+ 8. Show calendar with event date
+ 9. Allow members to join a club
+ 10. List current members of the club
+ 11. Send teacher approval request for joining club  
+ 12. Teacher approval notification
+ 13. Cancel an event
+ 14. Club founders can delete a club
+ 15. Display club member details regarding vaccination (if all members are vaccinated)
+
 
 ## Other Features
 1. Responsive to device resolution 
+2. Minimise and maximise dashboard side drawer
+3. Change password
+4. Delete account
+
 
 
  # Installation
@@ -194,6 +191,7 @@ Studee is a student portal application that helps students and teachers communic
 2. Version control - Git & GitHub
 3. Requirement specification - Traceability Matrix
 4. Unit Testing
-5. Component Testing
-6. Positive Testing
-7. Negative Testing
+
+---
+#### Developed For Microsoft Engage Mentorship Program '21.
+###### _Special thanks to my mentor Mr. Prasanna Kulkarni for his valuable advice and assistance in the development of this project._

@@ -3,7 +3,7 @@ from .models import Course
 from authentication.models import Account
 
 
-# FORM FOR CREATE A COURSE
+# Form for create a course
 class CourseCreateForm(forms.ModelForm):
      class Meta:
         model = Course

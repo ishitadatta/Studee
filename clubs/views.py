@@ -11,7 +11,7 @@ from authentication.models import Account
 
 # Create your views here.
 
-
+# Clubs list
 def home(request):
     if request.method == "POST":
         club = Club.objects.get(slug=request.POST['join-club'])
@@ -29,7 +29,7 @@ def home(request):
         template = loader.get_template('clubs/home.html')
         return HttpResponse(template.render(context, request))
 
-
+# Create a club
 def create_club(request):
     if request.method == "POST":
         club_form = ClubForm(request.POST)
@@ -49,7 +49,7 @@ def create_club(request):
         }
         return render(request, "clubs/create_club.html", context)
 
-
+# Create an event
 def create_event(request, slug):
     if request.method == "POST":
         event_form = EventForm(request.POST)
@@ -68,7 +68,7 @@ def create_event(request, slug):
         }
         return render(request, "clubs/create_event.html", context)
 
-
+# Club details
 def club_view(request, slug):
     if request.method == "POST":
         if 'join-club' in request.POST:
@@ -88,15 +88,15 @@ def club_view(request, slug):
         if 'leave-club' in request.POST:
             Members.objects.filter(member__username=request.user.username, club__slug=slug).delete()
             club = Club.objects.get(slug=slug)
-            messages.success(request, f'You have left the {club.name}. 1 credit has been deducted')
+            messages.warning(request, f'You have left the {club.name}. 1 credit has been deducted')
             return redirect('clubs:club', slug=slug)
         if 'delete-event' in request.POST:
             Events.objects.filter(id=request.POST['delete-event']).delete()
-            messages.success(request, f'Your event has been deleted')
+            messages.warning(request, f'Your event has been cancelled')
             return redirect('clubs:club', slug=slug)
         if 'delete-club' in request.POST:
             Club.objects.filter(slug=slug).delete()
-            messages.success(request, f'Your club has been deleted')
+            messages.warning(request, f'Your club has been deleted')
             return redirect('clubs:home')
     else:
         club = Club.objects.get(slug=slug)
@@ -125,13 +125,14 @@ def club_view(request, slug):
         return render(request, "clubs/club.html", context)
 
 
+# Join a club
 def join_club(request, club, head=False):
     approval = head or not club.approval_required
     user = Account.objects.get(username=request.user.username)
     member = Members(member=user, club=club, approved=approval)
     member.save()
 
-
+# List of events
 def get_events(events):
     event_list = []
     for event in events:
@@ -150,7 +151,7 @@ def get_events(events):
         'events': event_list
     }
 
-
+# Approval required for joining club
 def approve_member(request):
     [club, username] = request.POST['approve-member'].split("_")
     member = Members.objects.get(club__slug=club, member__username=username)

@@ -34,7 +34,7 @@ class ModelTesting(TestCase):
         self.superuser = Account.objects.create_superuser(
             username='superuser@example.com', firstname='John', lastname='Super', password='test@123'
         )
-        self.file_path = 'C:/Users/hrudh/OneDrive/Personal Files/Microsoft Engage/Engagetemp/media/assignments/doc2.txt'
+        self.file_path = 'F:/Engage 2021/Assignment sample.txt'
         self.file_bytes = BytesIO(open(self.file_path, 'rb').read())
         self.file_bytes.seek(0)
         self.file = InMemoryUploadedFile(self.file_bytes, 'doc2', 'doc2.txt', 'text/plain', sys.getsizeof(self.file_bytes), None)

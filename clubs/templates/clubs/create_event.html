@@ -1,108 +1,92 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}
-    {{ title }}
-{% endblock %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ title }} 
+{%endblock %} 
 {% block content %}
 
-<a class="h6 mb-5 text-gray-800" href="{% url 'clubs:home' %}">
-    Clubs
-</a>
+<a class="h6 mb-5 text-gray-800" href="{% url 'clubs:home' %}"> Clubs </a>
 <i class="fa fa-angle-right fa-sm text-primary mx-1"></i>
-<br><br>
+<br /><br />
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">
-        Create Event
-    </h1>
+  <h1 class="h3 mb-0 text-gray-800">Create Event</h1>
 </div>
 
 <div class="row">
-    
-    <div class="col-md-6">
-        <form method="POST">
-        {% csrf_token %}
-            <div class="form-group">
-                 <label for="name">
-                    Event Name
-                 </label>
-                 <p>
-                    {{ create_form.name }}
-                </p>
-    {% for error in create_form.name.errors %}
-        <p style="color:red;">
-            {{error}}
-        </p>
-    {% endfor %}
-</div>
-<!--end form-group-->
-<div class="form-group">
-    <label for="description">
-        Event Description
-    </label>
-    <p>
-        {{ create_form.description }}
-    </p>
-    {% for error in create_form.description.errors %}
-        <p style="color:red;">
-            {{error}}
-        </p>
-    {% endfor %}
-</div>
-<div class="form-group">
-    <label for="location">
-        Location
-    </label>
-    <p>
-        {{ create_form.location }}
-    </p>
-    {% for error in create_form.location.errors %}
-        <p style="color:red;">
-            {{error}}
-        </p>
-    {% endfor %}
-</div>
-<div class="form-group">
-    <label for="date">
-        Event Time
-    </label>
-    <p>
-        {{ create_form.date }}
-    </p>
-    {% for error in create_form.date.errors %}
-        <p style="color:red;">
-            {{error}}
-        </p>
-    {% endfor %}
-</div>
-<div class="form-group">
-    <label for="duration">
-        Event Duration(in hours)
-    </label>
-    <p>
-        {{ create_form.duration }}
-    </p>
-    {% for error in create_form.duration.errors %}
-        <p style="color:red;">
-            {{error}}
-        </p>
-    {% endfor %}
-</div>
-<div class="form-group mb-0 row">
-    <div class="col-12 mt-2">
-        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">
+  <div class="col-md-6">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name"> Event Name </label>
+        <p>{{ create_form.name }}</p>
+        {% for error in create_form.name.errors %}
+        <p style="color: red">{{error}}</p>
+        {% endfor %}
+      </div>
+      <!--end form-group-->
+      <div class="form-group">
+        <label for="description"> Event Description </label>
+        <p>{{ create_form.description }}</p>
+        {% for error in create_form.description.errors %}
+        <p style="color: red">{{error}}</p>
+        {% endfor %}
+      </div>
+      <!--end form-group-->
+      <div class="form-group">
+        <label for="location"> Location </label>
+        <p>{{ create_form.location }}</p>
+        {% for error in create_form.location.errors %}
+        <p style="color: red">{{error}}</p>
+        {% endfor %}
+      </div>
+      <!--end form-group-->
+      <div class="form-group">
+        <label for="date"> Event Time </label>
+        <p>{{ create_form.date }}</p>
+        {% for error in create_form.date.errors %}
+        <p style="color: red">{{error}}</p>
+        {% endfor %}
+      </div>
+      <!--end form-group-->
+      <div class="form-group">
+        <label for="duration"> Event Duration(in hours) </label>
+        <p>{{ create_form.duration }}</p>
+        {% for error in create_form.duration.errors %}
+        <p style="color: red">{{error}}</p>
+        {% endfor %}
+      </div>
+      <!--end form-group-->
+      <div class="form-group mb-0 row">
+        <div class="col-12 mt-2">
+          <button
+            class="btn btn-primary btn-block waves-effect waves-light"
+            type="submit"
+          >
             Create Event
-        </button>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-xl-4 col-lg-5">
+    <div
+      class="
+        card
+        shadow
+        py-4
+        d-sm-flex
+        align-items-center
+        justify-content-between
+        mb-4
+      "
+    >
+      <h5 class="mx-5 py-3">Attending events can earn you credits!</h5>
+      <img
+        class="card-img-top mx-auto d-block p-5"
+        src="{% static 'undraw_workout_gcgu.svg' %}"
+        alt="an image"
+      />
     </div>
-</div>
-</form>
-</div>
-<div class="col-xl-4 col-lg-5">
-    <div class="card shadow py-4 d-sm-flex align-items-center justify-content-between mb-4">
-        <h5 class="mx-5 py-3">
-            Attending events can earn you credits!
-        </h5>
-        <img class="card-img-top mx-auto d-block p-5" src="{% static 'undraw_workout_gcgu.svg' %}" alt="an image">
-    </div>    
-</div>
+  </div>
 </div>
 {% endblock %}

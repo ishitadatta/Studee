@@ -31,7 +31,8 @@
                             {{error}}
                         </p>
                     {% endfor %}
-                </div><!--end form-group-->
+                </div>
+                <!--end form-group-->
                 <div class="form-group">
                     <label for="firstname">
                         First Name
@@ -45,6 +46,7 @@
                         </p>
                     {% endfor %}
                 </div>
+                <!--end form-group-->
                 <div class="form-group">
                     <label for="lastname">
                         Last Name
@@ -58,6 +60,7 @@
                         </p>
                     {% endfor %}
                 </div>
+                <!--end form-group-->
                 <div class="form-group">
                     <label for="type">
                         User Type
@@ -71,6 +74,7 @@
                         </p>
                     {% endfor %}
                 </div>
+                <!--end form-group-->
                 <div class="form-group">
                     <label for="userpassword">
                         Password
@@ -87,6 +91,7 @@
                         {{ registration_form.password2}}
                     </p>
                 </div>
+                <!--end form-group-->
                 <div class="form-group mb-0 row">
                     <div class="col-12 mt-2">
                         <button class="btn btn-primary  btn-block waves-effect waves-light" type="submit">
@@ -94,6 +99,7 @@
                         </button>
                     </div>
                 </div>
+                <!--end form-group-->
                 <h6 style="text-align:center">
                     Already have an account?
                     <a href="{% url 'authentication:login' %}" class="text-primary">

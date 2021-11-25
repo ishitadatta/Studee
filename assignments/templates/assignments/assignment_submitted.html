@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Assignments{% endblock %}
+{% block title %}
+    Assignments
+{% endblock %}
 
 
 {% block content %}
@@ -42,32 +44,4 @@
             </div>
         </div>
     </div>
-{#    <div class="container">#}
-{#        {% if messages %}#}
-{#            {% for message in messages %}#}
-{#                <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">#}
-{#                    {{ message|safe }}#}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        {% endif %}#}
-{##}
-{#        <div class="col-12 col-sm-6 col-md-10">#}
-{#            {% if request.user.is_authenticated %}#}
-{#                <h3><strong> {{ assignment.assignment.title }}  </strong></h3>#}
-{#                <hr/>#}
-{#                <p><h4>Content</h4> {{ assignment.assignment.content }} </p>#}
-{#                <br/>#}
-{#                <p> <h4>Marks</h4> {{ assignment.assignment.marks }} </p>#}
-{##}
-{#                <p> <h4>Time</h4> {{ assignment.assignment.duration }} hours </p>#}
-{#                <h4><a href="{{ assignment.file.url }}" download="">{{ assignment.file.name|slice:'12:' }}</a></h4>#}
-{#                <h4><a href="{% url 'assignments:submit' assignment.assignment.id|slugify %}">Submit Assignment</a></h4>#}
-{#            {% else %}#}
-{#                <div style="background-color:#fff;color:#000;font-weight:bolder;padding:20px;width:100%;"> Please <a href="{% url 'authentication:login' %}"><b>login</b></a> to view assignments</div>#}
-{#            {% endif %}#}
-{#            <br/>#}
-{#        </div>#}
-{##}
-{#    </div>#}
-
 {% endblock %}

@@ -125,7 +125,7 @@
                                             <form method="post">
                                                 {% csrf_token %}
                                                 <button class="btn btn-outline-danger" type="submit" name="delete-event" value="{{ event.id }}">
-                                                    Delete Event
+                                                    Cancel Event
                                                 </button>
                                             </form>
                                         {% else %}
@@ -179,9 +179,4 @@
 
         </div>
     </div>
-{#    <div class="d-sm-flex align-items-center justify-content-between mb-4">#}
-{#        <div class="col-xl-8 col-lg-7">#}
-{##}
-{#        </div>#}
-{#    </div>#}
 {% endblock %}

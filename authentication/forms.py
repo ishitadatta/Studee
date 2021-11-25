@@ -32,12 +32,12 @@ class RegistrationForm(UserCreationForm):
     password2 = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Re-enter password'}))
     type = forms.ChoiceField(
-        choices=[("Instructor", "Instructor"), ('Student', 'student')],
+        choices=[("Teacher", "Teacher"), ('Student', 'student')],
         widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Account
-        fields = ("username", "firstname", "lastname", "password1")
+        fields = ("username", "firstname", "lastname", "password1", "type")
 
         widgets = {
             'username': forms.EmailInput(attrs={'class': 'form-control'}),

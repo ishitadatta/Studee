@@ -11,7 +11,7 @@ from authentication.models import Account
 # Create your views here.
 
 
-# # VIEW FOR COURSE LIST
+# View for course list
 @login_required
 def CourseView(request):
     if request.method == 'POST':
@@ -40,7 +40,7 @@ def CourseView(request):
         return HttpResponse(template.render(context, request))
 
 
-# COURSE CREATE VIEW
+# Course create view
 @login_required
 def CourseCreateView(request, id=None):
     context = {}
@@ -69,7 +69,6 @@ def CourseCreateView(request, id=None):
                 }
             )
         context = {
-            # 'title': 'New Assignment',
             'create_form': form,
             "id": id
         }

@@ -2,7 +2,7 @@ from django import forms
 from .models import *
 from django.utils.timezone import now
 
-
+# Form for creating a club
 class ClubForm(forms.ModelForm):
     approval_required = forms.BooleanField(required=False)
 
@@ -19,7 +19,7 @@ class ClubForm(forms.ModelForm):
 def get_time():
     return now().strftime("%Y-%m-%d %H:%M:%S")
 
-
+# Form for creating an event (only for club founders)
 class EventForm(forms.ModelForm):
     date = forms.DateTimeField(initial=get_time)
 

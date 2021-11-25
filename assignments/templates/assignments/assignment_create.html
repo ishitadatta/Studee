@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load tz %}
 {% load static %}
+
 {% block title %} Assignment Create {% endblock %}
+
 {% block content %}
 
 <a class="h6 mb-5 text-gray-800" href="{% url 'assignments:home' %}">
@@ -32,7 +34,8 @@
                         {{error}}
                     </p>
                 {% endfor %}
-            </div><!--end form-group-->
+            </div>
+            <!--end form-group-->
             <div class="form-group">
                 <label for="content">
                     Assignment
@@ -46,6 +49,7 @@
                     </p>
                 {% endfor %}
             </div>
+            <!--end form-group-->
             <div class="form-group">
                 <label for="content">
                     Course
@@ -59,6 +63,7 @@
                     </p>
                 {% endfor %}
             </div>
+            <!--end form-group-->
             <div class="form-group">
                 <label for="marks">
                     Marks
@@ -72,6 +77,7 @@
                     </p>
                 {% endfor %}
             </div>
+            <!--end form-group-->
             {% localtime on %}
                 <div class="form-group">
                     <label for="duration">
@@ -86,6 +92,7 @@
                         </p>
                     {% endfor %}
                 </div>
+                <!--end form-group-->
             {% endlocaltime %}
             <div class="form-group mb-0 row">
                 <div class="col-12 mt-2">
@@ -94,7 +101,7 @@
                     </button>
                 </div>
             </div>
-
+            <!--end form-group-->
         </form>
     </div>
     <div class="col-xl-4 col-lg-5">

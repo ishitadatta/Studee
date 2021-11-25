@@ -9,7 +9,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-
+# Vaccination details and preference for student
 @login_required
 def StudentPreference(request):
     template = loader.get_template('preference.html')

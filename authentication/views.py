@@ -15,13 +15,13 @@ from django.http import HttpResponse
 from clubs.models import Club, Events
 from scheduler.models import Preference
 
-
+# Display landing page 
 def landingPage(request):
     if request.user.is_authenticated:
         return redirect("authentication:home")
     return render(request, 'landing.html')
 
-
+# Display home dashboard once logged in
 @login_required
 def homePage(request):
     events = list(Events.objects.values().all())
@@ -51,7 +51,7 @@ def homePage(request):
     }
     return HttpResponse(template.render(context, request))
 
-
+# Sign up
 def register(request):
     context = {}
     if request.POST:
@@ -78,14 +78,13 @@ def register(request):
         context['registration_form'] = form
     return render(request, 'authentication/register.html', context)
 
-
+# Sign in
 def loginView(request):
     context = {}
     if request.user.is_authenticated:
         return redirect("authentication:home")
     if request.POST:
         form = AccountAuthenticateForm(request.POST)
-        # if form.is_valid():
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
@@ -100,12 +99,12 @@ def loginView(request):
     context['login_form'] = form
     return render(request, 'authentication/login.html', context)
 
-
+# Log out
 def logout_view(request):
     logout(request)
     return redirect('authentication:landing')
 
-
+# Display events calendar on home dashboard
 def get_events(events):
     event_list = []
     for event in events:
@@ -125,7 +124,7 @@ def get_events(events):
         'events': event_list
     }
 
-
+# User profile page
 @login_required
 def profile(request):
     template = loader.get_template('authentication/profile.html')
@@ -135,7 +134,7 @@ def profile(request):
     }
     return HttpResponse(template.render(context, request))
 
-
+# Edit profile
 @login_required
 def editProfile(request):
     template = loader.get_template("authentication/editProfile.html")
@@ -153,31 +152,31 @@ def editProfile(request):
     }
     return HttpResponse(template.render(context, request))
 
-
+# Delete user
 def deleteuser(request):
     if request.method == 'POST':
         Account.objects.filter(username=request.user.username).delete()
-        messages.success(request, 'Your account has been deleted.')
-        return redirect('authentication:login')
+        messages.success(request, 'Your account has been deleted. To create a new account, register here!')
+        return redirect('authentication:register')
     else:
         template = loader.get_template("authentication/deleteAccount.html")
         context = {}
         return HttpResponse(template.render(context, request))
 
-
+# User settings
 @login_required
 def accountSettings(request):
     template = loader.get_template("authentication/accountSettings.html")
     context = {}
     return HttpResponse(template.render(context, request))
 
-
+# Change password
 @login_required
 def password_change_done(request):
     messages.success(request, f'Your account has been updated successfully!')
     return redirect('account_settings')
 
-
+# Display tar student with highest credits
 def get_credit_star():
     max_credits = 0
     credit_stars = []

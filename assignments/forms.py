@@ -4,7 +4,7 @@ from courses.models import Course
 from authentication.models import Account
 
 
-# ASSIGNMENT CREATE FORM
+# Create assignment form
 class AssignmentCreateForm(forms.ModelForm):
     course = forms.ModelChoiceField(
         queryset=Course.objects.all(),
@@ -23,8 +23,7 @@ class AssignmentCreateForm(forms.ModelForm):
         }
 
 
-# ASSIGNMENT SUBMISSION FORM
-
+# Assignment Submission Form
 class AssignmentSubmissionForm(forms.ModelForm):
     class Meta:
         model = AssignmentSubmission
