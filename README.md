@@ -194,4 +194,4 @@ Studee is a student portal application that helps students and teachers communic
 
 ---
 #### Developed For Microsoft Engage Mentorship Program '21.
-###### _Special thanks to my mentor Mr. Prasanna Kulkarni for his valuable advice and assistance in the development of this project._
+###### _Special thanks to my mentor, Mr. Prasanna Kulkarni, for his valuable advice and assistance in the development of this project._
