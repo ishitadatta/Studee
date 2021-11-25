@@ -64,14 +64,17 @@ Studee is a student portal application that helps students and teachers communic
 ## Basic Features
 
 ### Vaccination Tracker
+Students can provide their vaccination status and their preferred mode of classes and teacher can receiver a roster consisting of these student details.
  1. Student can select option for offline/online class 
  2. Student can select vaccination status (not vaccinated/ partially vaccinated/ fully vaccinated)
  3. If vaccinated, student must upload latest vaccination certificate
  4. Display notice for students on dashboard to update vaccination status not done
- 5. Teacher will receive list of all student preferences
+ 5. Teacher will receive list of all student preferences <br>
+ <i> *All teachers are assumed to be fully vaccinated </i>
  
 
 ### Submission 
+Student can upload their assignments and teachers can grade the assignments
  1. Teacher can create a new assignment(assignment title, assignment detail, assignment course, marks, submission due date)
  2. Students can view assignments if the student is enrolled in the course
  3. Student assignment submission form - to upload assignment document
@@ -88,14 +91,24 @@ Studee is a student portal application that helps students and teachers communic
  14. Teacher can grade assignments
 
 ### Online Forum
+Students and teachers can interact in the forum in the form of posts which are segregated into categories.
+#### Category View
+A category is a topic of conversation.
+ 1. Categorise each post under an existing category or create a new category for a post
+ 2. Display latest post of each category in category list 
+ 3. Display number of posts of each category
+ 4. Map each category to an engagement score (0 Enagement Topic, Low Engagement Topic, Popular, High Engagement, Closed Topic)
+ 5. Display category and its posts engagement score using legend icons
+
+#### Post View
  1. Create a new post
- 2. Categorise each post under a subject or create a new category for a post
- 3. Map each category to an engagement score (0 Enagement Topic, Low Engagement Topic, Popular, High Engagement, Closed Topic)
- 4. Add tags to posts
- 5. Comment on a post
- 6. Reply to a comment on a post
+ 2. Add tags to posts
+ 3. Display date and user next to post/comment/reply
+ 4. Comment on a post
+ 5. Reply to a comment on a post
+ 6. View other comments and replies
  7. Show user type (teacher/student) for each post, comment, reply
- 8. Display user profile next to post/comment/reply
+ 8. Display number of comments and number of views for the post  
  9. Increment engagement score for each user forum activity
  10. Increment hit count of a post every time a new user views the post
  11. Delete post (and its trailing comments and replies) by post owner
@@ -105,6 +118,7 @@ Studee is a student portal application that helps students and teachers communic
 ## Additional Features
 
 ### Authentication
+New users can create a new account and existing users can log in to their accounts.
  1. Sign Up by entering user details (firstname, lastname, email,type of user, password, re-enter password)
  2. Create two sets of users - Student and Teacher
  3. Unique username and email authentication
@@ -118,16 +132,26 @@ Studee is a student portal application that helps students and teachers communic
  11. Display account successfully created message for new users
 
 ### Credit System
+Every functionality in the application has some actions that can earn the user some credits.
  1. Credits earned for posts on forum
  2. Credits earned from commenting on posts on forum
  3. Credits earned from replying to comments on forum
  4. Credits earned from assignment submission
  5. Credits earned from uploading vaccination certificate
- 6. Credit distribution split-up representation using Chart.js
- 7. Credit redeem options
- 8. Display student with highest credits as 'Star student' in dashboard
+ 6. Credits earned from joining a club
+ 7. Credits earned from attending an event
+ 8. Credits earned from enrolling for a course
+ 9. Credit distribution split-up representation using Chart.js
+ 10. Credit redeem options
+ 11. Display student with highest credits as 'Star student' in dashboard
+ 12. Credits deducted if posts/comments/replies are deleted
+ 13. Credits deducted if assignment submission is deleted
+ 14. Credits deducted on leaving a club
+ 15. Credits deducted on skipping an event
+ 16. Credits deducted on withdrawing from a course
 
 ### Courses
+Teachers can create a course which a student can get enrolled into and receive assignments for the course.
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
  3. Enroll into course option for students 
@@ -138,6 +162,7 @@ Studee is a student portal application that helps students and teachers communic
  8. Edit a course if user is a teacher
 
 ### User Profile
+Users can update their profile details.
  1. Upload profile picture
  2. View total credits
  3. View user email id
@@ -145,8 +170,8 @@ Studee is a student portal application that helps students and teachers communic
  5. Choose to cancel or save current changes
 
 
-
 ### Clubs
+Students and teachers can create and join clubs and organise and attend events of the club
  1. Create a club (club name, club description, approval required) 
  2. Student founders must have high credits (30 credits required to create a club)
  3. Teacher club founders can create clubs without having minimum credit requirement
@@ -162,6 +187,7 @@ Studee is a student portal application that helps students and teachers communic
  13. Cancel an event
  14. Club founders can delete a club
  15. Display club member details regarding vaccination (if all members are vaccinated)
+ 16. Leave a club
 
 
 ## Other Features
