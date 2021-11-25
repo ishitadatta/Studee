@@ -72,7 +72,7 @@ Studee is a student portal application that helps students and teachers communic
 
 ### Submission 
  1. Teacher can create a new assignment(assignment title, assignment detail, assignment course, marks, submission due date)
- 2. Students can view assignments
+ 2. Students can view assignments if the student is enrolled in the course
  3. Student assignment submission form - to upload assignment document
  4. Teacher can view assignment submissions
  5. Teacher can download each assignment
@@ -126,32 +126,37 @@ Studee is a student portal application that helps students and teachers communic
 ### Courses
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
- 3. Enroll into course option for students
- 4. Withdraw from a course option for students
- 5. Delete a course is user is a teacher
- 6. Edit a course if user is a teacher
+ 3. Enroll into course option for students 
+ 4. Award credits if enrolled into course
+ 5. Withdraw from a course option for students
+ 6. Deduct credits if course withdrawn 
+ 7. Delete a course is user is a teacher
+ 8. Edit a course if user is a teacher
 
 ### User Profile
  1. Upload profile picture
  2. Change password
  3. Edit Profile
  4. Delete Profile
- 5. Minimise dashboard side drawer
+
 
 ### Clubs
  1. Create a club (club name, club description, approval required) 
- 2. Founders must have high credits (30 credits required to create a club)
- 3. Make creater of the club, the founder of a club 
- 4. Create an event (event name, date, location, duration, description)
- 5. Attend an event (credits awarded)
- 6. Show calendar with event date
- 7. Allow members to join a club
- 8. List current members of the club
- 9. Send teacher approval request for joining club  
- 10. Teacher approval notification
+ 2. Student founders must have high credits (30 credits required to create a club)
+ 3. Teacher club founders can create clubs without having minimum credit requirement
+ 4. Make creater of the club, the founder of a club 
+ 5. Create an event (event name, date, location, duration, description)
+ 6. Attend an event (credits awarded)
+ 7. Skip an event (credits deducted)
+ 8. Show calendar with event date
+ 9. Allow members to join a club
+ 10. List current members of the club
+ 11. Send teacher approval request for joining club  
+ 12. Teacher approval notification
 
 ## Other Features
 1. Responsive to device resolution 
+2. Minimise and maximise dashboard side drawer
 
 
  # Installation
