@@ -15,6 +15,9 @@
 <p align="center">
 	Developed by : <i> Ishita Datta </i>
 </p>
+<p>
+<img src="coverage.svg">
+</p>
 
 ## About
 Studee is a student portal application that helps students and teachers communicate both virtually and physically by keeping students ENGAGE-ed to use the platform with the help of a <i> Credit-based system </i>.
