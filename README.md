@@ -34,6 +34,7 @@ Studee is a student portal application that helps students and teachers communic
 	<li>Python</li>
 	<li>Figma</li>
 	<li>Chart.js</li>
+	<li> Heroku </li>
 	<li>Azure Boards</li>
 </ul>
 </ul>
@@ -206,8 +207,8 @@ Students and teachers can create and join clubs and organise and attend events o
 3) Install virtualenv
   `pip install virtualenv` or `pip3 install virtualenv`
 4) Create virtual environment and cd into it
-  `virtualenv django-quiz --python python3 && cd django-quiz`
-5) Clone git repository into src folder and cd into it `git clone <url> src && cd src`
+  `virtualenv studee-app --python python3 && cd studee-app`
+5) Clone git repository into src folder and cd into it `git clone https://github.com/ishitadatta/Studee src && cd src`
 6) Install requirements `pip install -r requirements.txt` or `pip3 install -r requirements.txt`
 7) Make appropriate changes to settings module and make migrations using `python manage.py makemigrations` and then 
   `python manage.py migrate`
@@ -219,6 +220,7 @@ Students and teachers can create and join clubs and organise and attend events o
 2. Version control - Git & GitHub
 3. Requirement specification - Traceability Matrix
 4. Unit Testing
+5. Deployment
 
 ---
 #### Developed For Microsoft Engage Mentorship Program '21.
