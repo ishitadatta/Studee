@@ -161,11 +161,9 @@ Teachers can create a course which a student can get enrolled into and receive a
  1. Create course option for teachers (course name, course image, course description, credits)
  2. Course view option for students (course name, teacher name, course description, credits, duration)
  3. Enroll into course option for students 
- 4. Award credits if enrolled into course
- 5. Withdraw from a course option for students
- 6. Deduct credits if course withdrawn 
- 7. Delete a course is user is a teacher
- 8. Edit a course if user is a teacher
+ 4. Withdraw from a course option for students
+ 5. Delete a course is user is a teacher
+ 6. Edit a course if user is a teacher
 
 ### User Profile
 Users can update their profile details.
@@ -183,17 +181,15 @@ Students and teachers can create and join clubs and organise and attend events o
  3. Teacher club founders can create clubs without having minimum credit requirement
  4. Make creater of the club, the founder of a club 
  5. Create an event (event name, date, location, duration, description)
- 6. Attend an event (credits awarded)
- 7. Skip an event (credits deducted)
- 8. Show calendar with event date
- 9. Allow members to join a club
- 10. List current members of the club
- 11. Send teacher approval request for joining club  
- 12. Teacher approval notification
- 13. Cancel an event
- 14. Club founders can delete a club
- 15. Display club member details regarding vaccination (if all members are vaccinated)
- 16. Leave a club
+ 6. Show calendar with event date
+ 7. Allow members to join a club
+ 8. List current members of the club
+ 9. Send teacher approval request for joining club  
+ 10. Teacher approval notification
+ 11. Cancel an event
+ 12. Club founders can delete a club
+ 13. Display club member details regarding vaccination (if all members are vaccinated)
+ 14. Leave a club
 
 
 ## Other Features
