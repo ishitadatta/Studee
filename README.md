@@ -99,6 +99,7 @@ Student can upload their assignments and teachers can grade the assignments
 
 ### Online Forum
 Students and teachers can interact in the forum in the form of posts which are segregated into categories.
+
 #### Category View
 A category is a topic of conversation.
  1. Categorise each post under an existing category or create a new category for a post
@@ -150,7 +151,7 @@ Every functionality in the application has some actions that can earn the user s
  8. Credits earned from enrolling for a course
  9. Credit distribution split-up representation using Chart.js
  10. Credit redeem options
- 11. Display student with highest credits as 'Star student' in dashboard
+ 11. Display student with highest credits as 'Top Credit student' in dashboard
  12. Credits deducted if posts/comments/replies are deleted
  13. Credits deducted if assignment submission is deleted
  14. Credits deducted on leaving a club
@@ -196,8 +197,9 @@ Students and teachers can create and join clubs and organise and attend events o
 ## Other Features
 1. Responsive to device resolution 
 2. Minimise and maximise dashboard side drawer
-3. Change password
-4. Delete account
+3. Display vaccination card as fully vaccinated on dashboard for teachers
+4. Change password
+5. Delete account
 
  # Installation
 1) Install python3
@@ -224,7 +226,7 @@ Students and teachers can create and join clubs and organise and attend events o
 
 ###### For better experience, use the app on your local server :smiley: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 # Additional Links
-[UI/UX designs on Figma](https://www.figma.com/file/PkDsRCRLRE0WZ6yj0GkkNC/Studee?node-id=0%3A1)
+* [UI/UX designs on Figma](https://www.figma.com/file/PkDsRCRLRE0WZ6yj0GkkNC/Studee?node-id=0%3A1)
 
 ---
 #### Developed For Microsoft Engage Mentorship Program '21.
