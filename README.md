@@ -9,7 +9,7 @@
   <a href="#about">About</a> •
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
-  <a href="#ci/cd">CI/CD</a>
+  <a href="#cicd">CI/CD</a>
 	
 </p>
 <p align="center">
@@ -93,7 +93,7 @@ Student can upload their assignments and teachers can grade the assignments
  9. Student can re-submit assignment
  10. Student can view submitted assignment
  11. Display pending assignment submission deadlines on calendar
- 12. Display number of pending days till deadline (emphasis on deadline less than or equal to 2 days)
+ 12. Display number of pending days till deadline (emphasis on days remaining if deadline less than or equal to 2 days)
  13. Auto-update assignment expiry status post submission deadline
  14. Teacher can grade assignments
 
@@ -163,7 +163,7 @@ Teachers can create a course which a student can get enrolled into and receive a
  2. Course view option for students (course name, teacher name, course description, credits, duration)
  3. Enroll into course option for students 
  4. Withdraw from a course option for students
- 5. Delete a course is user is a teacher
+ 5. Delete a course if user is a teacher
  6. Edit a course if user is a teacher
 
 ### User Profile
@@ -171,35 +171,33 @@ Users can update their profile details.
  1. Upload profile picture
  2. View total credits
  3. View user email id
- 4. Update bio
- 5. Choose to cancel or save current changes
-
+ 4. Update user bio
+ 5. Choose to cancel or save current changes of edit profile details
 
 ### Clubs
 Students and teachers can create and join clubs and organise and attend events of the club
  1. Create a club (club name, club description, approval required) 
  2. Student founders must have high credits (30 credits required to create a club)
  3. Teacher club founders can create clubs without having minimum credit requirement
- 4. Make creater of the club, the founder of a club 
- 5. Create an event (event name, date, location, duration, description)
+ 4. Assign creater of the club as the founder of a club 
+ 5. Club founders can create an event (event name, date, location, duration, description)
  6. Show calendar with event date
  7. Allow members to join a club
  8. List current members of the club
  9. Send teacher approval request for joining club  
  10. Teacher approval notification
- 11. Cancel an event
- 12. Club founders can delete a club
- 13. Display club member details regarding vaccination (if all members are vaccinated)
- 14. Leave a club
-
-
+ 11. Attend an event
+ 12. Skip an event
+ 13. Cancel an event
+ 14. Club founders can delete a club
+ 15. Display club member details regarding vaccination (if all members are vaccinated)
+ 16. Leave a club
+ 
 ## Other Features
 1. Responsive to device resolution 
 2. Minimise and maximise dashboard side drawer
 3. Change password
 4. Delete account
-
-
 
  # Installation
 1) Install python3
@@ -214,15 +212,19 @@ Students and teachers can create and join clubs and organise and attend events o
   `python manage.py migrate`
 8) Run using `python manage.py runserver`
 9) Create superuser to log into admin `python manage.py createsuperuser`
+10) Paste the server address [127.0.0.1:8000](http://127.0.0.1:8000) on any browser to see the webpage working on your local machine
+11) To view as a superuser user go to url address:  [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 # CI/CD
 1. Software used for agile development - Azure Boards
 2. Version control - Git & GitHub
 3. Requirement specification - Traceability Matrix
-4. Unit Testing
-5. Deployment
+4. Unit Testing - Coverage in Django
+5. Deployment - Heroku
 
-###### For better experience, use the app on your local server :smiley: (http://127.0.0.1:8000/)
+###### For better experience, use the app on your local server :smiley: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+# Additional Links
+[UI/UX designs on Figma](https://www.figma.com/file/PkDsRCRLRE0WZ6yj0GkkNC/Studee?node-id=0%3A1)
 
 ---
 #### Developed For Microsoft Engage Mentorship Program '21.
