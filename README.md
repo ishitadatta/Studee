@@ -222,6 +222,8 @@ Students and teachers can create and join clubs and organise and attend events o
 4. Unit Testing
 5. Deployment
 
+###### For better experience, use the app on your local server :smiley: (http://127.0.0.1:8000/)
+
 ---
 #### Developed For Microsoft Engage Mentorship Program '21.
 ###### _Special thanks to my mentor, Mr. Prasanna Kulkarni, for his valuable advice and assistance in the development of this project._
