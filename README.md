@@ -226,6 +226,7 @@ Students and teachers can create and join clubs and organise and attend events o
 ###### For better experience, use the app on your local server :smiley: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 # Additional Links
 * [UI/UX designs on Figma](https://www.figma.com/file/PkDsRCRLRE0WZ6yj0GkkNC/Studee?node-id=0%3A1)
+* [Video Demo](https://youtu.be/Lx0FmP3NpPI)
 
 ---
 #### Developed For Microsoft Engage Mentorship Program '21.
