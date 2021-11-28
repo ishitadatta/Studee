@@ -221,7 +221,8 @@ Students and teachers can create and join clubs and organise and attend events o
 2. Version control - Git & GitHub
 3. Requirement specification - Traceability Matrix
 4. Unit Testing - Coverage in Django
-5. Deployment - Heroku
+5. Static testing - Desk checking of code
+6. Deployment - Heroku
 
 ###### For better experience, use the app on your local server :smiley: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 # Additional Links
