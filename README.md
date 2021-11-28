@@ -228,6 +228,9 @@ Students and teachers can create and join clubs and organise and attend events o
 # Additional Links
 * [UI/UX designs on Figma](https://www.figma.com/file/PkDsRCRLRE0WZ6yj0GkkNC/Studee?node-id=0%3A1)
 * [Video Demo](https://youtu.be/Lx0FmP3NpPI)
+* [Code coverage](https://drive.google.com/file/d/1b87inTFxVxbzmL_krJMg_t4ZfQoy2vzI/view)
+* [Project Progress using Azure Boards](https://drive.google.com/drive/folders/11elMFpdTDPdcITHrZ84ZBqLmdMi6K7hS?usp=sharing)
+* [Screenshots](https://drive.google.com/drive/folders/1oaLInvHNJ-_iYw5I52sCWJqexV5mxTqh?usp=sharing)
 
 ---
 #### Developed For Microsoft Engage Mentorship Program '21.
