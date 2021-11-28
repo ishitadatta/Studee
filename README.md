@@ -72,37 +72,37 @@ Studee is a student portal application that helps students and teachers communic
 
 ### Vaccination Tracker
 Students can provide their vaccination status and their preferred mode of classes and teacher can receiver a roster consisting of these student details.
- 1. Student can select option for offline/online class 
- 2. Student can select vaccination status (not vaccinated/ partially vaccinated/ fully vaccinated)
- 3. If vaccinated, student must upload latest vaccination certificate
+ 1. Students can select option for offline/online class 
+ 2. Students can select vaccination status (not vaccinated/ partially vaccinated/ fully vaccinated)
+ 3. If vaccinated, students must upload latest vaccination certificate
  4. Display notice for students on dashboard to update vaccination status not done
- 5. Teacher will receive list of all student preferences <br>
+ 5. Teachers will receive list of all student preferences <br>
  <i> *All teachers are assumed to be fully vaccinated </i>
  
 
 ### Submission 
 Student can upload their assignments and teachers can grade the assignments
- 1. Teacher can create a new assignment(assignment title, assignment detail, assignment course, marks, submission due date)
+ 1. Teachers can create a new assignment(assignment title, assignment detail, assignment course, marks, submission due date)
  2. Students can view assignments if the student is enrolled in the course
- 3. Student assignment submission form - to upload assignment document
- 4. Teacher can view assignment submissions
- 5. Teacher can download each assignment
- 6. Teacher can edit assignment
- 7. Teacher can delete assignment uploaded by them
- 8. Student can delete assignment submitted by them
- 9. Student can re-submit assignment
- 10. Student can view submitted assignment
+ 3. Students assignment submission form - to upload assignment document
+ 4. Teachers can view assignment submissions
+ 5. Teachers can download each assignment
+ 6. Teachers can edit assignment
+ 7. Teachers can delete assignment uploaded by them
+ 8. Students can delete assignment submitted by them
+ 9. Students can re-submit assignment
+ 10. Students can view submitted assignment
  11. Display pending assignment submission deadlines on calendar
  12. Display number of pending days till deadline (emphasis on days remaining if deadline less than or equal to 2 days)
  13. Auto-update assignment expiry status post submission deadline
- 14. Teacher can grade assignments
+ 14. Teachers can grade assignments
 
 ### Online Forum
 Students and teachers can interact in the forum in the form of posts which are segregated into categories.
 
 #### Category View
 A category is a topic of conversation.
- 1. Categorise each post under an existing category or create a new category for a post
+ 1. Segment each post under an existing category or create a new category for a post
  2. Display latest post of each category in category list 
  3. Display number of posts of each category
  4. Map each category to an engagement score (0 Enagement Topic, Low Engagement Topic, Popular, High Engagement, Closed Topic)
@@ -145,18 +145,17 @@ Every functionality in the application has some actions that can earn the user s
  2. Credits earned from commenting on posts on forum
  3. Credits earned from replying to comments on forum
  4. Credits earned from assignment submission
- 5. Credits earned from uploading vaccination certificate
- 6. Credits earned from joining a club
- 7. Credits earned from attending an event
- 8. Credits earned from enrolling for a course
- 9. Credit distribution split-up representation using Chart.js
- 10. Credit redeem options
- 11. Display student with highest credits as 'Top Credit student' in dashboard
- 12. Credits deducted if posts/comments/replies are deleted
- 13. Credits deducted if assignment submission is deleted
- 14. Credits deducted on leaving a club
- 15. Credits deducted on skipping an event
- 16. Credits deducted on withdrawing from a course
+ 5. Credits earned from joining a club
+ 6. Credits earned from attending an event
+ 7. Credits earned from enrolling for a course
+ 8. Credit distribution split-up representation using Chart.js
+ 9. Credit redeem options
+ 10. Display student with highest credits as 'Top Credit student' in dashboard
+ 11. Credits deducted if posts/comments/replies are deleted
+ 12. Credits deducted if assignment submission is deleted
+ 13. Credits deducted on leaving a club
+ 14. Credits deducted on skipping an event
+ 15. Credits deducted on withdrawing from a course
 
 ### Courses
 Teachers can create a course which a student can get enrolled into and receive assignments for the course.
@@ -180,7 +179,7 @@ Students and teachers can create and join clubs and organise and attend events o
  1. Create a club (club name, club description, approval required) 
  2. Student founders must have high credits (30 credits required to create a club)
  3. Teacher club founders can create clubs without having minimum credit requirement
- 4. Assign creater of the club as the founder of a club 
+ 4. Assign founder of the club as the head of the club 
  5. Club founders can create an event (event name, date, location, duration, description)
  6. Show calendar with event date
  7. Allow members to join a club
